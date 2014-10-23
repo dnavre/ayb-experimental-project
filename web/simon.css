@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+}
+table{
+    margin: auto;
+    width: 120px;
+}
+#site{
+    color: dimgrey;
+    font-size: 24px;
+    width: 60px;
+}
+#link, #link a{
+    color: green;
+    font-size: 24px;
+    width: 60px;
+}
+td{
+    width: 40px;
+}
