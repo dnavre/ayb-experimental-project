@@ -1,6 +1,16 @@
 <html>
 <head>
 	<title>homework</title>
+	<style> 
+#aaa {
+    margin: auto;
+    border: 1px solid black;
+    width: 300px;
+    height: 200px;
+ 
+}
+</style>
+	
 </head>
 <body>
    <table border="1" style="width:50%">
@@ -20,5 +30,19 @@
    
   </tr>
 </table>
+ <img id="aaa" src="http://www.moviehdwallpapers.com/wp-content/uploads/2014/10/google_images_-_photos_videos.jpg"></img>
+
+<button onclick="myFunction()">Try it</button>
+<script>
+function myFunction() {
+    // Code for Chrome, Safari, Opera
+    document.getElementById("aaa").style.WebkitTransform = "rotate(20deg)"; 
+    // Code for IE9
+    document.getElementById("aaa").style.msTransform = "rotate(20deg)"; 
+    // Standard syntax
+    document.getElementById("aaa").style.transform = "rotate(20deg)"; 
+}
+</script>
+
 </body>
 </html>
