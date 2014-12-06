@@ -11,6 +11,9 @@
 	<td><a href="simon_zohrabyan.htm">File Link</td>
 </tr>
 </table>
+	<div >
+		Some text
+	</div>
 </center>
 </body>
 </html>
