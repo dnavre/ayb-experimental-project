@@ -17,10 +17,7 @@ if(empty($_GET['module'])
     $action = $_GET['action'];
 }
 
+
 require_once "modules/$module/$action.php";
-
-
-
-
 
 ?>
