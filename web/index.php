@@ -19,6 +19,5 @@ if(empty($_GET['module'])
 
 
 require_once "modules/$module/$action.php";
-$smarty->display('website/index.tpl');
 
 ?>

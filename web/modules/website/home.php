@@ -6,3 +6,4 @@
  * Time: 10:43 AM
  */
 
+$smarty->display("website/index.tpl");
