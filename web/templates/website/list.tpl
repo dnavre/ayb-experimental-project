@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Souvenir list</title>
-</head>
+{extends file="website/index.tpl"}
+{block name=main_content}
 
-<body>
-<img src="images/logo.png" alt="Ayb Souvenir Shop" title="Souvenir Shop Logo" width="50" height="50"/>
-<h1>Ayb School Souvenir Shop</h1>
-</div>
-<div id="language">
-    <ul>
-        <menuitem><a href="">ENG</a></menuitem>
-        <menuitem><a href="">RUS</a></menuitem>
-        <menuitem><a href="">ARM</a></menuitem>
-    </ul>
-</div>
-<div id="mymenu">
-    <ul>
-        <menuitem><a href="">Home</a></menuitem>
-        <menuitem><a href="">Products</a></menuitem>
-        <menuitem><a href="">About Us</a></menuitem>
-    </ul>
-</div>
-</div>
-<div id="search">
-    <form>
-        <input type="search" placeholder="Search In Site" name="search" id="search"/>
-    </form>
-</div>
 <form>
     <fieldset>
 
@@ -58,25 +31,5 @@
     </fieldset>
 </form>
 
-</body>
 
-<div id="footer">
-    <div id="information">
-        <div id="map"></div>
-        <div id="facebook"></div>
-        <div id="social_network">
-            <ul>
-                <li><a href="">Facebook</a></li>
-                <li><a href="">Twitter</a></li>
-            </ul>
-        </div>
-        <div id="form">
-            <a id="form_pop_up" href="#"></a>
-        </div>
-    </div>
-    <div id="copyright">
-        <span>All Rights Reserved &copy; AYB Web-Development Class</span>
-    </div>
-</div>
-</body>
-</html>
+{/block}
