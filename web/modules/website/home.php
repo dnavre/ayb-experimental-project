@@ -6,4 +6,6 @@
  * Time: 10:43 AM
  */
 
-$smarty->display("website/index.tpl");
+$smarty->assign("menu_item", "home");
+$smarty->assign("title", "Home Page | AYB Souvenir Shop");
+$smarty->display("website/home.tpl");

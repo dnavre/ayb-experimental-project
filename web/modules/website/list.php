@@ -7,4 +7,6 @@
  */
 
 
-$smarty->display('website/list.tpl');
+$smarty->assign("menu_item", "souvenir");
+$smarty->assign("title", "Souvenirs | AYB Souvenir Shop");
+$smarty->display("website/list.tpl");

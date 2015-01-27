@@ -22,19 +22,21 @@
             <a href=""><h1 id="main_name">AYB School Souvenir Shop</h1></a>
         </div>
 
-        <div id="menu">
-            <ul>
-                <li class="active"><a href="">Home</a></li>
-                <li><a href="">Products</a></li>
-                <li><a href="">About Us</a></li>
-            </ul>
-            <div id="search">
-                <form>
-                    <input type="text" placeholder="Search In Site" name="search" id="search_bar" class="form-control"/>
-                </form>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li {if $menu_item eq 'home'}class = "active"{/if}><a href="?module=website&action=home">Home</a></li>
+                        <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="?module=website&action=list">Products</a></li>
+                        <li {if $menu_item eq 'about'}class = "active"{/if}><a href="?module=website&action=about">About Us</a></li>
+                    </ul>
+                    <form class="navbar-form  navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-
     </div>
     <div class="clr"></div>
     <hr/>
