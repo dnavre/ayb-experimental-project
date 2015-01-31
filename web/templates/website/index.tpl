@@ -4,7 +4,6 @@
     <link rel="stylesheet" type="text/css" href="css/website/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="{$css_link}"/>
-    $css_link
     <script src="js/bootstrap.js"></script>
     <script>$script</script>
 </head>
