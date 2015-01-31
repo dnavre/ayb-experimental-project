@@ -1,0 +1,10 @@
+#featured{
+    width: 485px;
+    float: left;
+    margin: 10px 5px;
+}
+#new{
+    width: 490px;
+    float: right;
+    margin: 10px 5px;
+}
