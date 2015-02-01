@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>$title</title>
-    <link rel="stylesheet" type="text/css" href="css/website/main.css"/>
+    <link rel="stylesheet" type="text/css" href="{$ROOT}css/website/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href='{$css_link}'/>
     <script src="js/bootstrap.js"></script>
@@ -26,9 +26,9 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li {if $menu_item eq 'home'}class = "active"{/if}><a href="?module=website&action=home">Home</a></li>
-                        <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="?module=website&action=list">Products</a></li>
-                        <li {if $menu_item eq 'about'}class = "active"{/if}><a href="?module=website&action=about">About Us</a></li>
+                        <li {if $menu_item eq 'home'}class = "active"{/if}><a href="home">Home</a></li>
+                        <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="list">Products</a></li>
+                        <li {if $menu_item eq 'about'}class = "active"{/if}><a href="about">About Us</a></li>
                     </ul>
                     <form class="navbar-form  navbar-right" role="search">
                         <div class="form-group">

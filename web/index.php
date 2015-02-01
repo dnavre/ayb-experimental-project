@@ -1,23 +1,35 @@
 <?php
-
-
 require_once 'includes/globals.php';
-
-global $module, $action;
 
 $defaultModule = 'website';
 $defaultAction = 'home';
+$defaultId = '';
 
-if(empty($_GET['module'])
-    || !checkModuleStr($_GET['module'], $_GET['action'])) {
-    $module = $defaultModule;
-    $action = $defaultAction;
-} else {
+if(isset($_GET['module'])) {
     $module = $_GET['module'];
-    $action = $_GET['action'];
+}
+else $module = $defaultModule;
+
+if(isset($_GET['action'])) {
+    $url = explode("/", $_GET['action']);
+    $action = $url[0];
+    if(isset($url[2])) {
+        $id = $url[2];
+    }
+    else{
+        $id = "";
+    }
+}
+if ($action == "") {
+    $action = $defaultAction;
+    $id = $defaultId;
 }
 
-
-require_once "modules/$module/$action.php";
+if(file_exists("modules/$module/$action.php")) {
+    require_once "modules/$module/$action.php";
+}
+else{
+    require_once "404.html";
+}
 
 ?>

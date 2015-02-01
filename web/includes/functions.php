@@ -14,16 +14,15 @@
  * @param $action
  * @return true if valid, false otherwise
  */
-function checkModuleStr($module, $action) {
+function checkModuleStr($str) {
 
     $InvalidCharacterPattern = '|.*[.\/].*|';
 
-    if(preg_match($InvalidCharacterPattern, $module)
-    || preg_match($InvalidCharacterPattern, $action)) {
+    if(preg_match($InvalidCharacterPattern, $str)) {
         return false;
     }
 
-    if(empty($module) || empty($action)) {
+    if(empty($str)) {
         return false;
     }
 
