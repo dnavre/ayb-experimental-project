@@ -1,4 +1,30 @@
 {extends file="website/index.tpl"}
 {block name=main_content}
+<<<<<<< Updated upstream
     <h1>Hello World</h1>
+=======
+
+<div class="row" style="width:100%">
+    <div class="col-md-7">
+        <img width="100%" src="http://www.zastavki.com/pictures/originals/2012/People_Children_The_child_with_paints_036037_.jpg"/>
+        <div class="col-md-2">.col-md-1</div>
+        <div class="col-md-2">.col-md-1</div>
+        <div class="col-md-2">.col-md-1</div>
+        <div class="col-md-2">.col-md-1</div>
+        <div class="col-md-2">.col-md-1</div>
+        <div class="col-md-2">.col-md-1</div>
+    </div>
+    <div class="col-md-4">
+        <h2>Souvenir Name</h2>
+        <h4>Souvenir Category</h4>
+        <h1>100$ </h1>
+        <p>
+            <button type="button" class="btn btn-default">Like</button>
+            <button type="button" class="btn btn-default">Share</button>
+        </p>
+        <h5>Description</h5>
+        <h5>Published on 07.12.2014</h5>
+    </div>
+</div>
+>>>>>>> Stashed changes
 {/block}
