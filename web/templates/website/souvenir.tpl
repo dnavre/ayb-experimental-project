@@ -1,8 +1,5 @@
 {extends file="website/index.tpl"}
 {block name=main_content}
-<<<<<<< Updated upstream
-    <h1>Hello World</h1>
-=======
 
 <div class="row" style="width:100%">
     <div class="col-md-7">
@@ -26,5 +23,4 @@
         <h5>Published on 07.12.2014</h5>
     </div>
 </div>
->>>>>>> Stashed changes
 {/block}
