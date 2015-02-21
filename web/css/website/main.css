@@ -93,9 +93,12 @@
 }
 .fb-like-box{
     float: right;
-    clear: both;
 }
 #copyright{
     position: relative;
     top: 100px;
+}
+#maps{
+    float: right;
+    position: relative;
 }

@@ -22,6 +22,7 @@
         ga('send', 'pageview');
 
     </script>
+
 </head>
 <body>
 <div id="wrapper">
@@ -65,6 +66,7 @@
         <div id="copyright">
             <span>All Rights Reserved &copy; AYB Web-Development Class</span>
         </div>
+        <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d190.39592482609945!2d44.52867511918894!3d40.22385771492381!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2bce1cbf64f%3A0x85260d9b22d017a!2sAyb+High+School!5e0!3m2!1sru!2s!4v1424531345385" width="300" height="200" frameborder="0" style="border:0"></iframe>
         <div id="fb-root"></div>
             <script>(function(d, s, id) {
                     var js, fjs = d.getElementsByTagName(s)[0];
@@ -73,7 +75,7 @@
                     js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=182799588557942&version=v2.0";
                     fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-like-box" data-href="https://www.facebook.com/aybsouvenirshop" data-height="200" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false"></div>
+        <div class="fb-like-box" data-href="https://www.facebook.com/aybsouvenirshop" data-height="205" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false"></div>
         <div id="form">
                 <a id="form_pop_up" href="#"></a>
         </div>
