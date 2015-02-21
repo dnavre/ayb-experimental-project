@@ -9,7 +9,6 @@
 #wrapper{
     width: 1000px;
     margin: 0 auto;
-    border: solid 1px #000;
 }
 #logo img{
     width: 120px;
@@ -91,4 +90,12 @@
 }
 #search_bar:hover{
     outline: none !important;
+}
+.fb-like-box{
+    float: right;
+    clear: both;
+}
+#copyright{
+    position: relative;
+    top: 100px;
 }

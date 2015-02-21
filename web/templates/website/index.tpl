@@ -7,10 +7,16 @@
     <script src="js/bootstrap.js"></script>
     <script>$script</script>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject']=r;
+        i[r]=i[r]||function(){
+        i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();
+        a=s.createElement(o), m=s.getElementsByTagName(o)[0];
+        a.async=1;
+        a.src=g;
+        m.parentNode.insertBefore(a,m)
+        })
+        (window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-59986673-1', 'auto');
         ga('send', 'pageview');
@@ -56,23 +62,23 @@
     <div class="clr"></div>
     <hr/>
     <div id="footer">
-        <div id="information">
-            <div id="map"></div>
-            <div id="facebook"></div>
-            <div id="social_network">
-                <ul>
-                    <li><a href="">Facebook</a></li>
-                    <li><a href="">Twitter</a></li>
-                </ul>
-            </div>
-            <div id="form">
-                <a id="form_pop_up" href="#"></a>
-            </div>
-        </div>
         <div id="copyright">
             <span>All Rights Reserved &copy; AYB Web-Development Class</span>
         </div>
+        <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=182799588557942&version=v2.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-like-box" data-href="https://www.facebook.com/aybsouvenirshop" data-height="200" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false"></div>
+        <div id="form">
+                <a id="form_pop_up" href="#"></a>
+        </div>
     </div>
+
 </div>
 </body>
 </html>

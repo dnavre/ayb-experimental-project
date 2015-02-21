@@ -15,10 +15,7 @@
         <h2>Souvenir Name</h2>
         <h4>Souvenir Category</h4>
         <h1>100$ </h1>
-        <p>
-            <button type="button" class="btn btn-default">Like</button>
-            <button type="button" class="btn btn-default">Share</button>
-        </p>
+        <div class="fb-like" data-href="#" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
         <h5>Description</h5>
         <h5>Published on 07.12.2014</h5>
     </div>
