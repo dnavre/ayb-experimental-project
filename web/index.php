@@ -20,7 +20,7 @@ if(isset($_GET['action'])) {
         $id = "";
     }
 }
-if ($action == "") {
+if (!isset($action)) {
     $action = $defaultAction;
     $id = $defaultId;
 }
