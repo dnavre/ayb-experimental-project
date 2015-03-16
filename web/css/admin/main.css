@@ -1,0 +1,58 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.clr{
+    clear: both;
+    overflow: hidden;
+}
+#wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+#header h1{
+    color: #ba1920;
+    width: auto;
+    float: left;
+}
+#header a{
+    float: right;
+    margin: 25px 50px;
+    background: #ed1922;
+    padding: 3px 10px;
+    color: #ffffff;
+    border-radius: 10px;
+    display: block;
+}
+#header a:hover{
+    background: #ba1920;
+    text-decoration: none;
+}
+#content ul{
+    list-style: none;
+}
+#content ul li{
+    float: left;
+    margin: 0 50px;
+    border: 1px solid #000;
+}
+.num{
+    margin: 0 25px !important;
+}
+.name{
+    margin-left: 25px !important;
+    margin-right: 100px !important;
+}
+.vis, .feature{
+    margin: 0 15px !important;
+}
+.btn{
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+}
+.table > tbody > tr > td{
+    vertical-align: middle !important;
+}
+

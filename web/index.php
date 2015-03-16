@@ -1,14 +1,16 @@
 <?php
 require_once 'includes/globals.php';
-$db = new PDO('mysql:host=us-cdbr-iron-east-01.cleardb.net;dbname=heroku_35e1d9aab0e6b9c', $db_username, $db_password);
 $defaultModule = 'website';
-$defaultAction = 'home';
+
 $defaultId = '';
 
 if(isset($_GET['module'])) {
     $module = $_GET['module'];
 }
 else $module = $defaultModule;
+
+if($module == 'website') $defaultAction = 'home';
+else $defaultAction = 'souvenir';
 
 if(isset($_GET['action'])) {
     $url = explode("/", $_GET['action']);

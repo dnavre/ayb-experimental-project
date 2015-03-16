@@ -54,6 +54,7 @@
                     </form>
                 </div>
             </div>
+        </nav>
     </div>
     <div class="clr"></div>
     <hr/>
