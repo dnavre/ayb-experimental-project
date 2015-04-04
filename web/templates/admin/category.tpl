@@ -11,27 +11,18 @@
         <th></th>
         </thead>
         <tbody class="">
-        <tr>
-            <td>1</td>
-            <td>Cups</td>
-            <td><input type="checkbox" value="" disabled checked/></td>
+      
+{foreach $categories as $category}
+          <tr>
+            <td>{$category['id']}</td>
+            <td>{$category['name']}</td> 
+            <td><input type="checkbox"  disabled {if $category['visible'] eq 1} checked {/if} /></td>
             <td><button type="button" class="btn btn-warning">Edit</button></td>
             <td><button type="button" class="btn btn-danger">Delete</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>T-Shirts</td>
-            <td><input type="checkbox" value="" disabled /></td>
-            <td><button type="button" class="btn btn-warning">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Cases</td>
-            <td><input type="checkbox" value="" disabled checked/></td>
-            <td><button type="button" class="btn btn-warning">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
-        </tr>
+             </tr>
+{/foreach}
+       
+
         </tbody>
     </table>
 {/block}
