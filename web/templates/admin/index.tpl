@@ -4,6 +4,13 @@
     <link rel="stylesheet" type="text/css" href="css/admin/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <script src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            toolbar: false
+        });
+    </script>
 </head>
 <body>
     <div id="wrapper">

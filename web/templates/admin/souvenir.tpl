@@ -1,7 +1,7 @@
 {extends file="admin/index.tpl"}
 {block name=content}
     <h1>Souvenirs</h1>
-    <button type="button" class="new btn btn-success">Add New Souvenir</button>
+    <button onclick="window.location.href='?module=admin&action=sedit'" type="button" class="new btn btn-success">Add New Souvenir</button>
     <table class="table table-hover">
         <thead>
             <th width="5%">#</th>

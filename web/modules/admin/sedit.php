@@ -1,6 +1,6 @@
 <?php
 
-$smarty->assign("menu_item", "page");
-$smarty->display("admin/SouvenirEdit.tpl");
+$smarty->assign("menu_item", "souvenir");
+$smarty->display("admin/sedit.tpl");
 
  
