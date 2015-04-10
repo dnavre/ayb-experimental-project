@@ -7,16 +7,16 @@
                 <input type="text" class="form-control" name="souvenir_name" value="Hoodie">
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
-            <div class="col-sm-5">
-                <select class="form-control" name="souvenir_category">
-                    <option>Cups</option>
-                    <option>T-Shirts</option>
-                    <option>Cases</option>
-                </select>
-            </div>
-        </div>
+         <div class="form-group">
+             <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
+             <div class="col-sm-5">
+                 <select class="form-control" name="souvenir_category">
+                     <option>Cups</option>
+                     <option>T-Shirts</option>
+                     <option>Cases</option>
+                 </select>
+             </div>
+         </div>
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Price</label>
             <div class="col-sm-5">

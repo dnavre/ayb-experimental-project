@@ -1,6 +1,6 @@
 {extends file="admin/index.tpl"}
 {block name=content}
-    <form class="form-horizontal" action="" method="post">
+    <form class="form-horizontal" action="?module=admin&action=addcat" method="post">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-5">
