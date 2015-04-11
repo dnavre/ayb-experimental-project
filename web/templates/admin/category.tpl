@@ -11,16 +11,17 @@
         <th></th>
         </thead>
         <tbody class="">
-      
-{foreach $categories as $category}
-          <tr>
-            <td>{$category['id']}</td>
-            <td>{$category['name']}</td> 
-            <td><input type="checkbox"  disabled {if $category['visible'] eq 1} checked {/if} /></td>
-            <td><button onclick="window.location.href='?module=admin&action=category_edit&id={$category['id']}'" type="button" class="btn btn-warning">Edit</button></td>
-            <td><button onclick="window.location.href='?module=admin&action=category_delete&id={$category['id']}'" type="button" class="btn btn-danger">Delete</button></td>
-             </tr>
-{/foreach}
+        <div style="display: none; position: absolute">{counter start=0 skip=1}</div>
+        {foreach $categories as $category}
+
+                  <tr>
+                        <td>{counter}</td>
+                        <td>{$category['name']}</td>
+                        <td><input type="checkbox"  disabled {if $category['visible'] eq 1} checked {/if} /></td>
+                        <td><button onclick="window.location.href='?module=admin&action=category_edit&id={$category['id']}'" type="button" class="btn btn-warning">Edit</button></td>
+                        <td><button onclick="window.location.href='?module=admin&action=category_delete&id={$category['id']}'" type="button" class="btn btn-danger">Delete</button></td>
+                  </tr>
+        {/foreach}
        
 
         </tbody>
