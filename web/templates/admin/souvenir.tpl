@@ -12,30 +12,19 @@
             <th></th>
         </thead>
         <tbody class="">
-            <tr>
-                <td>1</td>
-                <td>Hoodie</td>
-                <td><input type="checkbox" value="" disabled checked/></td>
-                <td><input type="checkbox" value="" disabled/></td>
-                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Hoodie</td>
-                <td><input type="checkbox" value="" disabled /></td>
-                <td><input type="checkbox" value="" disabled checked /></td>
-                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Hoodie</td>
-                <td><input type="checkbox" value="" disabled checked/></td>
-                <td><input type="checkbox" value="" disabled checked/></td>
-                <td><button type="button" class="btn btn-warning">Edit</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
-            </tr>
+            
+           {foreach $souvenirs as $souvenir}
+          <tr>
+            <td>{$souvenir['id']}</td>
+            <td>{$souvenir['name']}</td> 
+            <td><input type="checkbox"  disabled {if $souvenir['visible'] eq 1} checked {/if} /></td>
+            <td><input type="checkbox"  disabled {if $souvenir['featured'] eq 1} checked {/if}></td>
+            <td><button type="button" class="btn btn-warning">Edit</button></td>
+            <td><button onclick="window.location.href='?module=admin&action=delcat&id={$souvenir['id']}'" type="button" class="btn btn-danger">Delete</button></td>
+             </tr>
+{/foreach}
+
+{debug}
         </tbody>
     </table>
 {/block}

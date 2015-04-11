@@ -11,3 +11,19 @@ $smarty->assign("menu_item", "souvenir");
 $smarty->assign("title", "Souvenir | AYB Souvenir Shop");
 $smarty->assign("css_link", "css/website/souvenir.css");
 $smarty->display("website/souvenir.tpl");
+?>
+
+<html>
+<body>
+
+<div classs="photoes">
+  <div class="main photo"></div>
+  <div class="other photos"></div>
+</div>
+<div class="featured souvenires"></div>
+
+<div class="souvenir imformaton">
+	
+</div>
+</body>
+</html>
