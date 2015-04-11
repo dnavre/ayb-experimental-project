@@ -12,10 +12,14 @@
             <th></th>
         </thead>
         <tbody class="">
-            
+
+          {assign var=i value=0}
            {foreach $souvenirs as $souvenir}
+            {assign var=i value=$i+1}
+            
           <tr>
-            <td>{$souvenir['id']}</td>
+
+            <td>{$i}</td>
             <td>{$souvenir['name']}</td> 
             <td><input type="checkbox"  disabled {if $souvenir['visible'] eq 1} checked {/if} /></td>
             <td><input type="checkbox"  disabled {if $souvenir['featured'] eq 1} checked {/if}></td>
