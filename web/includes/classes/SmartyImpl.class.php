@@ -18,6 +18,6 @@ class SmartyImpl extends Smarty {
         $this->setCompileDir(ROOT . '/cache/templates_compile/');
         $this->setCacheDir(ROOT . '/cache/templates_cache/');
 
-        $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
+        $this->caching = Smarty::CACHING_OFF;
     }
 }
