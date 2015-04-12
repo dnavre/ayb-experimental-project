@@ -1,6 +1,6 @@
 <?php
 
-global $db;
+global $db, $smarty;
    
     $stmt = $db->prepare("SELECT id, name, visible FROM category"); 
     $stmt->execute();
