@@ -25,9 +25,7 @@
             <td><button type="button" class="btn btn-warning">Edit</button></td>
             <td><button onclick="window.location.href='?module=admin&action=delcat&id={$souvenir['id']}'" type="button" class="btn btn-danger">Delete</button></td>
              </tr>
-{/foreach}
-
-{debug}
+           {/foreach}
         </tbody>
     </table>
 {/block}

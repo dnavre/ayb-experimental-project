@@ -16,7 +16,7 @@
        {foreach $categories as $category}
             {assign var=i value=$i+1}
           <tr>
-            <td>{$category['$i']}</td>
+            <td>{$i}</td>
             <td>{$category['name']}</td> 
             <td><input type="checkbox"  disabled {if $category['visible'] eq 1} checked {/if} /></td>
            <td><button onclick="window.location.href='?module=admin&action=category_edit&id={$category['id']}'" type="button" class="btn btn-warning">Edit</button></td>
