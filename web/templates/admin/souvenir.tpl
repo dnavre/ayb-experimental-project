@@ -1,7 +1,7 @@
 {extends file="admin/index.tpl"}
 {block name=content}
     <h1>Souvenirs</h1>
-    <button onclick="window.location.href='?module=admin&action=souvenir_edit'" type="button" class="new btn btn-success">Add New Souvenir</button>
+    <button onclick="window.location.href='?module=admin&action=sedit'" type="button" class="new btn btn-success">Add New Souvenir</button>
     <table class="table table-hover">
         <thead>
             <th width="5%">#</th>
@@ -16,7 +16,6 @@
           {assign var=i value=0}
            {foreach $souvenirs as $souvenir}
             {assign var=i value=$i+1}
-            
           <tr>
 
             <td>{$i}</td>
