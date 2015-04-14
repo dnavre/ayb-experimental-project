@@ -17,11 +17,13 @@ if(!$stmt->execute())
     if($sql_error[1] == '1451')
     {
         session_start();
-        $_SESSION['sql_error'] = "There is a souvenir which category is ".$result['name'].". First delete that souvenir or change the category!!!";
+        $_SESSION['error'] = "There is a souvenir which category is ".$result['name'].". First delete that souvenir or change the category!!!";
         header('Location: ?module=admin&action=category');
     }
     else{
-        die("Unknown Error!!!");
+        session_start();
+        $_SESSION['error'] = "Unknown error!!!";
+        header('Location: ?module=admin&action=category');
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-global $db;
+global $db, $smarty;
 if(isset($_GET['id'])) {
 
     $stmt = $db->prepare("SELECT id, name, visible FROM category WHERE id=".$_GET['id']);

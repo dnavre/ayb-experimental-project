@@ -14,10 +14,10 @@ $result = $stmt->fetchAll();
 
 $smarty->assign("categories", $result);
 $smarty->assign("menu_item", "category");
-if(isset($_SESSION['sql_error']))
+if(isset($_SESSION['error']))
 {
     $smarty->assign("error_place", "category");
-    $smarty->assign("error_body", $_SESSION['sql_error']);
+    $smarty->assign("error_body", $_SESSION['error']);
     session_unset();
     $smarty->display("admin/error.tpl");
 }
