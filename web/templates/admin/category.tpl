@@ -1,5 +1,6 @@
 {extends file="admin/index.tpl"}
 {block name=content}
+    {block name=error}{/block}
     <h1>Categories</h1>
     <button onclick="window.location.href='?module=admin&action=category_edit'" type="button" class="new btn btn-success">Add New Category</button>
     <table class="table table-hover">

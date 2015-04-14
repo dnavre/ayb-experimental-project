@@ -1,14 +1,26 @@
 <?php
 
-global $db, $smarty;
-   
-    $stmt = $db->prepare("SELECT id, name, visible FROM category"); 
-    $stmt->execute();
+global $db, $smarty, $error;
+session_start();
 
-    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    $result = $stmt->fetchAll();
-   // var_dump($result);
-    
-    $smarty->assign("categories", $result);
-	$smarty->assign("menu_item", "category");
-	$smarty->display("admin/category.tpl");
+
+   
+$stmt = $db->prepare("SELECT id, name, visible FROM category");
+$stmt->execute();
+
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$result = $stmt->fetchAll();
+// var_dump($result);
+
+$smarty->assign("categories", $result);
+$smarty->assign("menu_item", "category");
+if(isset($_SESSION['sql_error']))
+{
+    $smarty->assign("error_place", "category");
+    $smarty->assign("error_body", $_SESSION['sql_error']);
+    session_unset();
+    $smarty->display("admin/error.tpl");
+}
+else{
+    $smarty->display("admin/category.tpl");
+}
