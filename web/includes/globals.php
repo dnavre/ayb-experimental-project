@@ -9,7 +9,9 @@
 define('ROOT', '.');
 
 require_once ROOT . '/includes/config.php';
+require_once ROOT . '/includes/errors.php';
 require_once ROOT . '/includes/functions.php';
 require_once ROOT . '/includes/db.php';
+require_once ROOT . '/includes/session.php';
 require_once ROOT . '/includes/templates.php';
 

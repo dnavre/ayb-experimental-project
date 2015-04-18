@@ -37,7 +37,7 @@
             </nav>
         </div>
         <div id="content">
-
+            {include file='admin/error.tpl'}
             {block name=content}{/block}
         </div>
     </div>

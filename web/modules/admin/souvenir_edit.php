@@ -1,7 +1,6 @@
 <?php
 
 global $db, $smarty;
-session_start();
 
 
 $stmt = $db->prepare("SELECT id, name FROM category");
@@ -26,12 +25,5 @@ else {
 $smarty->assign("categories", $result);
 $smarty->assign("souvenir_info", $souvenir_info);
 $smarty->assign("menu_item", "souvenir");
-if(isset($_SESSION['error'])){
-    $smarty->assign("error_place", "souvenir_edit");
-    $smarty->assign("error_body", $_SESSION['error']);
-    session_unset();
-    $smarty->display("admin/error.tpl");
-}
-
-else $smarty->display("admin/souvenir_edit.tpl");
+$smarty->display("admin/souvenir_edit.tpl");
 

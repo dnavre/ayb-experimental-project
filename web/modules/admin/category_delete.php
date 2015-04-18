@@ -11,22 +11,13 @@ $result = $stmt2->fetch();
 $sql = "DELETE FROM category WHERE id = :cat_id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':cat_id', $_GET['id']);
-if(!$stmt->execute())
-{
+$stmt->execute();
     $sql_error = $stmt->errorInfo();
     if($sql_error[1] == '1451')
     {
-        session_start();
-        $_SESSION['error'] = "There is a souvenir which category is ".$result['name'].". First delete that souvenir or change the category!!!";
-        header('Location: ?module=admin&action=category');
+        header('Location: ?module=admin&action=category&error_id=' . SS_ERROR_SOUVENIRS_IN_CATEGORY);
+        die();
     }
-    else{
-        session_start();
-        $_SESSION['error'] = "Unknown error!!!";
-        header('Location: ?module=admin&action=category');
-    }
-
-}
 
 header('Location: ?module=admin&action=category');
 

@@ -1,4 +1,1 @@
-{extends file="admin/$error_place.tpl"}
-{block name=error}
-    <div class="alert alert-danger" role="alert">{$error_body}</div>
-{/block}
+{if $ss_error neq ''}<div class="alert alert-danger" role="alert">{$ss_error}</div>{/if}
