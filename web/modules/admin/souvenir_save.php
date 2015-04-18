@@ -23,6 +23,7 @@ else {
 }
 $description = $_POST['souvenir_description'];
 
+
 $statement = $db->prepare("SELECT id FROM category WHERE name = :category_name");
 $statement->bindParam(':category_name', $_POST['souvenir_category']);
 $statement->execute();
@@ -35,7 +36,8 @@ $category_id=$result['id'];
 if($_POST['souvenir_id'] == '') {
     if ($visible == false) {
         $publish_date = null;
-    } else {
+    }
+    else {
         $publish_date = date('Y-m-d H:i:s a', time());
     }
 
@@ -93,6 +95,11 @@ if($_FILES['main_img']['name'] != '') {
                 }
                 $img_final_path = ROOT."/uploads/souvenirs/".$id."/real.jpg";
                 move_uploaded_file($_FILES['main_img']['tmp_name'], $img_final_path);
+                $IMG=imagecreatefromstring(file_get_contents($img_final_path));
+                $thumb = image_resize($IMG, array("width"=>1200, "height"=>800, "center"=>true, "transparent"=>false));
+                imagejpeg($thumb, ROOT."/uploads/souvenirs/".$id."/thumb.jpg", 100);
+                imagedestroy($thumb);
+                $img_final_path = ROOT."/uploads/souvenirs/".$id."/thumb.jpg";
                 $stmt3 = $db->prepare("INSERT INTO photo(src, souvenir_id, title) VALUES (:src, :souvenir_id, :title)");
                 $stmt3->bindParam(':src', $img_final_path);
                 $stmt3->bindParam(':souvenir_id', $id);
@@ -103,6 +110,7 @@ if($_FILES['main_img']['name'] != '') {
                 $statement3->bindParam(':photo_id', $id_photo);
                 $statement3->bindParam(':souvenir_id', $id);
                 $statement3->execute();
+
             }
             else {
                 header("Location: ?module=admin&action=souvenir_edit&id=" . $id . "&error_id=" . SS_ERROR_IMAGE_SIZE);

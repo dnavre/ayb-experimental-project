@@ -54,6 +54,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Already Uploaded Image</label>
+                <div class="col-sm-10">
+                    <img src="{$souvenir_info['photo_src']}" width="500">
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label"></label>
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-success" name="submit">Save</button>
