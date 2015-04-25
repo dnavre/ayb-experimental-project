@@ -96,10 +96,10 @@ if($_FILES['main_img']['name'] != '') {
                 $img_final_path = ROOT."/uploads/souvenirs/".$id."/real.jpg";
                 move_uploaded_file($_FILES['main_img']['tmp_name'], $img_final_path);
                 $IMG=imagecreatefromstring(file_get_contents($img_final_path));
-                $thumb = image_resize($IMG, array("width"=>1200, "height"=>800, "center"=>true, "transparent"=>false));
-                imagejpeg($thumb, ROOT."/uploads/souvenirs/".$id."/thumb.jpg", 100);
+                $thumb = image_resize($IMG, array("width"=>1200, "height"=>800, "center"=>true, "transparent"=>TRUE));
+                imagepng($thumb, ROOT."/uploads/souvenirs/".$id."/thumb.png", 9);
                 imagedestroy($thumb);
-                $img_final_path = ROOT."/uploads/souvenirs/".$id."/thumb.jpg";
+                $img_final_path = ROOT."/uploads/souvenirs/".$id."/thumb.png";
                 $stmt3 = $db->prepare("INSERT INTO photo(src, souvenir_id, title) VALUES (:src, :souvenir_id, :title)");
                 $stmt3->bindParam(':src', $img_final_path);
                 $stmt3->bindParam(':souvenir_id', $id);
