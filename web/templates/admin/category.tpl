@@ -20,7 +20,7 @@
            <tr>
                <td>{$i}</td>
                <td>{$category['name']}</td>
-               <td> 25 </td> <!--Souvenir Quantity-->
+               <td> {$category['souvenir_cnt']} </td> <!--Souvenir Quantity-->
                <td><input type="checkbox"  disabled {if $category['visible'] eq 1} checked {/if} /></td> <!--Visibility Checkbox-->
                <td><button onclick="window.location.href='?module=admin&action=category_edit&id={$category['id']}'" type="button" class="btn btn-warning">Edit</button></td> <!--Edit Botton-->
                <td><button onclick="window.location.href='?module=admin&action=category_delete&id={$category['id']}'" type="button" class="btn btn-danger">Delete</button></td> <!--Delete Botton-->
