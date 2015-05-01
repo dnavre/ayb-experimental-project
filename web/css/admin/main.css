@@ -55,3 +55,19 @@
 .table > tbody > tr > td{
     vertical-align: middle !important;
 }
+.abcd{
+    text-align:center
+}
+.abcd img{
+    height:100px;
+    width:100px;
+    padding:5px;
+    border:1px solid #e8debd
+}
+#img{
+    width:17px;
+    border:none;
+    height:17px;
+    margin-left:-20px;
+    margin-bottom:91px
+}

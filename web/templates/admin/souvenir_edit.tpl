@@ -5,7 +5,7 @@
     {else}<h3>Edit Souvenir</h3>
     {/if}
     <div id="souvenir_edit_left" class="col-md-6">
-        <form class="form-horizontal" method="post" action="?module=admin&action=souvenir_save" enctype="multipart/form-data">
+        <form enctype="multipart/form-data" action="?module=admin&action=souvenir_save" method="post">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
@@ -50,13 +50,8 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Add Image</label>
                 <div class="col-sm-10">
-                    <input type="file" id="main_img" name="main_img">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Already Uploaded Image</label>
-                <div class="col-sm-10">
-                    <img src="{$souvenir_info['photo_src']}" width="500">
+                    <div id="filediv"><input name="file[]" type="file" id="file"/></div>
+                    <input type="button" id="add_more" class="upload" value="Add More Files"/>
                 </div>
             </div>
             <div class="form-group">

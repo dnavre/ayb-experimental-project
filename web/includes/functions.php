@@ -48,7 +48,9 @@ function deleteDirectory($dirPath)
     }
 }
 
-function image_resize($img_src_rs, $settings=array()){
+function image_resize($img_src, $settings=array()){
+    $img_src_rs = imagecreatefromstring(file_get_contents($img_src));
+
     $src=array("w"=>imagesx($img_src_rs), "h"=>imagesy($img_src_rs), "ratio"=>0, "w2"=>0, "h2"=>0, "x"=>0, "y"=>0);
     $src["ratio"]=$src["w"]/$src["h"];
 

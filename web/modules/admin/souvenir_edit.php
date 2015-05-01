@@ -18,7 +18,7 @@ if(isset($_GET['id'])) {
     $souvenir_info = $query->fetch();
 }
 else {
-    $souvenir_info = ['id'=>'', 'name' => '', 'visible'=>'0', 'description' => '', 'category_id' => '', 'price' => '', 'featured' => '0'];
+    $souvenir_info = ['id'=>'', 'name' => '', 'visible'=>'0', 'description' => '', 'category_id' => '', 'price' => '', 'featured' => '0', 'photo_src' => ''];
 }
 
 $smarty->assign("categories", $result);
