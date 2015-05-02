@@ -30,18 +30,28 @@ $smarty->assign("souvenirs", $result);
 $smarty->assign("menu_item", "souvenir");
 $smarty->display("admin/souvenir.tpl");
 
+if (isset($_GET['category_id'])) {
+     $stmt = $db->prepare("SELECT id, name, visible, featured 
+	 FROM souvenir s
+	 WHERE category_id = :category_id
+ 	 GROUP BY id");
 
+ 	 $stmt->bindParam(':category_id',$_GET['category_id'] );
 
-$_GET['category_id'];
-$stmt = $db->prepare("SELECT c.name, COUNT(s.id) souvenir_cnt 
-FROM category c
-LEFT JOIN souvenir s ON c.id=s.category_id
-WHERE category_id = :category_id
-GROUP BY c.id");
+} 
 
-$stmt->bindParam(':category_id', $name);
+else {
+
+	 $stmt = $db->prepare("SELECT id, name, visible, featured FROM souvenir");
+
+}
 
 $stmt->execute();
 
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $result = $stmt->fetchAll();
+
+
+$smarty->assign("souvenirs", $result);
+$smarty->assign("menu_item", "souvenir");
+$smarty->display("admin/souvenir.tpl");
