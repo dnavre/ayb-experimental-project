@@ -15,7 +15,6 @@
                 margin:0;
 
             }
-
             legend
             {
 
@@ -87,5 +86,21 @@
     </form>
 
 </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Souvenir Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+            {foreach $souvenirs as $souvenir}
+                <tr>
+                <td>{$souvenir['name']}</td>
+                    <td>{$souvenir['price']}</td>
+                </tr>
+            {/foreach}
+        </tbody>
+        </table>
 
 {/block}
