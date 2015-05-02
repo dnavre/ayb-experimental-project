@@ -24,6 +24,24 @@ else{
 }
 
 
+
+
 $smarty->assign("souvenirs", $result);
 $smarty->assign("menu_item", "souvenir");
 $smarty->display("admin/souvenir.tpl");
+
+
+
+$_GET['category_id'];
+$stmt = $db->prepare("SELECT c.name, COUNT(s.id) souvenir_cnt 
+FROM category c
+LEFT JOIN souvenir s ON c.id=s.category_id
+WHERE category_id = :category_id
+GROUP BY c.id");
+
+$stmt->bindParam(':category_id', $name);
+
+$stmt->execute();
+
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$result = $stmt->fetchAll();
