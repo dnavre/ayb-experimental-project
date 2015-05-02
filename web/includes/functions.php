@@ -5,7 +5,7 @@
  * Date: 12/6/14
  * Time: 10:45 AM
  */
-
+include_once (ROOT . "/includes/imageResizeClass.php");
 
 /**
  * Checks whether $module and $action string can be used as
@@ -48,51 +48,52 @@ function deleteDirectory($dirPath)
     }
 }
 
-function image_resize($img_src, $settings=array()){
+function imageResize($img_src, ImageResizeConfig $irConfig){
+    $settings = ["width" => $irConfig->getWidth(), "height" => $irConfig->getHeight(), "transparent" => $irConfig->getTransparent(), "center" => true];
     $img_src_rs = imagecreatefromstring(file_get_contents($img_src));
 
-    $src=array("w"=>imagesx($img_src_rs), "h"=>imagesy($img_src_rs), "ratio"=>0, "w2"=>0, "h2"=>0, "x"=>0, "y"=>0);
-    $src["ratio"]=$src["w"]/$src["h"];
+    $src=array("width"=>imagesx($img_src_rs), "height"=>imagesy($img_src_rs), "ratio"=>0, "newWidth"=>0, "newHeight"=>0, "x"=>0, "y"=>0);
+    $src["ratio"]=$src["width"]/$src["height"];
 
-    $dst=array("w"=>0, "h"=>0, "ratio"=>0, "x"=>0, "y"=>0);
+    $dst=array("width"=>0, "height"=>0, "ratio"=>0, "x"=>0, "y"=>0);
 
     if(isset($settings["width"]) && isset($settings["height"])){
-        $dst["w"]=(int)$settings["width"];
-        $dst["h"]=(int)$settings["height"];
+        $dst["width"]=(int)$settings["width"];
+        $dst["height"]=(int)$settings["height"];
     }
     elseif(isset($settings["width"])){
-        $dst["w"]=(int)$settings["width"];
-        $dst["h"]=ceil($dst["w"]/$src["ratio"]);
+        $dst["width"]=(int)$settings["width"];
+        $dst["height"]=ceil($dst["width"]/$src["ratio"]);
     }
     elseif(isset($settings["height"])){
-        $dst["h"]=(int)$settings["height"];
-        $dst["w"]=ceil($dst["h"]*$src["ratio"]);
+        $dst["height"]=(int)$settings["height"];
+        $dst["width"]=ceil($dst["height"]*$src["ratio"]);
     }
 
 
     if(isset($settings["center"]) && ($settings["center"]==true)){
-        $dst["ratio"]=$dst["w"]/$dst["h"];
+        $dst["ratio"]=$dst["width"]/$dst["height"];
 
         if($dst["ratio"]>$src["ratio"]){
             // destination is wider
             //echo "destination is wider\n\n";
-            $src["h2"]=$dst["h"];
-            $src["w2"]=$src["h2"]*$src["ratio"];
-            $dst["x"]=floor(($dst["w"]-$src["w2"])/2);
+            $src["newHeight"]=$dst["height"];
+            $src["newWidth"]=$src["newHeight"]*$src["ratio"];
+            $dst["x"]=floor(($dst["width"]-$src["newWidth"])/2);
         }
         else if($dst["ratio"]<$src["ratio"]){
-            $src["w2"]=$dst["w"];
-            $src["h2"]=$src["w2"]/$src["ratio"];
-            $dst["y"]=floor(($dst["h"]-$src["h2"])/2);
+            $src["newWidth"]=$dst["width"];
+            $src["newHeight"]=$src["newWidth"]/$src["ratio"];
+            $dst["y"]=floor(($dst["height"]-$src["newHeight"])/2);
         }
     }
 
 
 
-    $img_dst_rs = imagecreatetruecolor($dst["w"], $dst["h"]);
+    $img_dst_rs = imagecreatetruecolor($dst["width"], $dst["height"]);
 
-    if($src["w2"]>0){$dst["w"]=ceil($src["w2"]);}
-    if($src["h2"]>0){$dst["h"]=ceil($src["h2"]);}
+    if($src["newWidth"]>0){$dst["width"]=ceil($src["newWidth"]);}
+    if($src["newHeight"]>0){$dst["height"]=ceil($src["newHeight"]);}
 
     if(isset($settings["transparent"]) && ($settings["transparent"]==true)){
         imagesavealpha($img_dst_rs,true);
@@ -104,7 +105,8 @@ function image_resize($img_src, $settings=array()){
 
 
     //imagecopyresampled ( resource $dst_image , resource $src_image , int $dst_x , int $dst_y , int $src_x , int $src_y , int $dst_w , int $dst_h , int $src_w , int $src_h )
-    imagecopyresampled($img_dst_rs, $img_src_rs, $dst["x"], $dst["y"], $src["x"], $src["y"], $dst["w"], $dst["h"], $src["w"], $src["h"]);
+    imagecopyresampled($img_dst_rs, $img_src_rs, $dst["x"], $dst["y"], $src["x"], $src["y"], $dst["width"], $dst["height"], $src["width"], $src["height"]);
 
     return $img_dst_rs;
+
 }

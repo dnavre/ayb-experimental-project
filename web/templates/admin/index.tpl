@@ -39,7 +39,7 @@
                     $(this).hide();
                     $("#abcd" + abc).append($("<img/>", {
                         id: 'img',
-                        src: 'x.png',
+                        src: 'images/x.png',
                         alt: 'delete'
                     }).click(function() {
                         $(this).parent().parent().remove();

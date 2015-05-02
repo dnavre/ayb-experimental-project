@@ -50,7 +50,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Add Image</label>
                 <div class="col-sm-10">
-                    <div id="filediv"><input name="file[]" type="file" id="file"/></div>
+                    <div  id="filediv"><input name="file[]" type="file" id="file"/></div>
                     <input type="button" id="add_more" class="upload" value="Add More Files"/>
                 </div>
             </div>

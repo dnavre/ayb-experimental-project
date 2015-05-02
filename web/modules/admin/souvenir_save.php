@@ -1,6 +1,8 @@
 <?php
 
 global $db;
+include_once (ROOT . "/includes/imageResizeClass.php");
+$irConfig = new ImageResizeConfig();
 
 if($_SERVER['CONTENT_LENGTH'] > '3000000'){
     header("Location: ?module=admin&error_id=" . SS_ERROR_IMAGE_SIZE);
@@ -92,11 +94,11 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
                     if (!file_exists(ROOT . "/uploads/souvenirs/" . $id . "/")) {
                         mkdir(ROOT . "/uploads/souvenirs/" . $id, 0777);
                     }
-                    $img_final_path = ROOT . "/uploads/souvenirs/" . $id . "/" . $i . ".jpg";
-                    move_uploaded_file($_FILES['file']['tmp_name'][$i], $img_final_path);
-                    $thumb = image_resize($img_final_path, array("width" => 1200, "height" => 800, "center" => true, "transparent" => true));
+                    $irConfig->setHeight(800);
+                    $irConfig->setWidth(1200);
+                    $irConfig->setTransparent(true);
+                    $thumb = imageResize($_FILES['file']['tmp_name'][$i], $irConfig);
                     imagepng($thumb, ROOT . "/uploads/souvenirs/" . $id . "/" . $i . ".png", 9);
-                    unlink($img_final_path);
                     imagedestroy($thumb);
                     $img_final_path = ROOT . "/uploads/souvenirs/" . $id . "/" . $i . ".png";
                     $stmt3 = $db->prepare("INSERT INTO photo(src, souvenir_id, title) VALUES (:src, :souvenir_id, :title)");
