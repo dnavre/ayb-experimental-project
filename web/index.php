@@ -31,7 +31,7 @@ if(file_exists("modules/$module/$action.php")) {
     require_once "modules/$module/$action.php";
 }
 else{
-    require_once "404.html";
+    require_once "modules/website/404.php";
 }
 
 ?>

@@ -1,9 +1,12 @@
 {extends file="admin/index.tpl"}
 {block name=content}
     {block name=error}{/block}
-    {if $souvenir_info['id'] eq ''}<h3>New Souvenir</h3>
-    {else}<h3>Edit Souvenir</h3>
+    {if $souvenir_info['id'] eq ''}
+        <h3>New Souvenir</h3>
+    {else}
+        <h3>Edit Souvenir</h3>
     {/if}
+
     <div id="souvenir_edit_left" class="col-md-6">
         <form enctype="multipart/form-data" action="?module=admin&action=souvenir_save" method="post">
             <div class="form-group">
@@ -60,7 +63,12 @@
                     <button type="submit" class="btn btn-success" name="submit">Save</button>
                 </div>
             </div>
-
+            <div class="form-group" style="margin-right: -16px;">
+                <label for="inputEmail3" class="col-sm-2 control-label">Images</label>
+                <div class="col-sm-10">
+                    <img src="">
+                </div>
+            </div>
         </form>
     </div>
 {/block}
