@@ -94,8 +94,8 @@ for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
                     if (!file_exists(ROOT . "/uploads/souvenirs/" . $id . "/")) {
                         mkdir(ROOT . "/uploads/souvenirs/" . $id, 0777);
                     }
-                    $irConfig->setHeight(800);
-                    $irConfig->setWidth(1200);
+                    $irConfig->setHeight(200);
+                    $irConfig->setWidth(180);
                     $irConfig->setTransparent(true);
                     $thumb = imageResize($_FILES['file']['tmp_name'][$i], $irConfig);
                     imagepng($thumb, ROOT . "/uploads/souvenirs/" . $id . "/" . $i . ".png", 9);

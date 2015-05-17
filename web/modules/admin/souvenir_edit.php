@@ -9,9 +9,10 @@ $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $result = $stmt->fetchAll();
 
+
 if(isset($_GET['id'])) {
 
-    $query = $db->prepare("SELECT s.id, s.name, s.visible, s.description, s.category_id, s.price, s.featured, p.src photo_src FROM souvenir s left join photo p on p.souvenir = s.id WHERE s.id=".$_GET['id']);
+    $query = $db->prepare("SELECT s.id, s.name, s.visible, s.description, s.category_id, s.price, s.featured FROM souvenir s WHERE s.id=".$_GET['id']);
     $query->execute();
 
     $query->setFetchMode(PDO::FETCH_ASSOC);
