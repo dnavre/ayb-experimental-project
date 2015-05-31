@@ -27,7 +27,7 @@
                </td> <!--Souvenir Quantity-->
                <td><input type="checkbox"  disabled {if $category['visible'] eq 1} checked {/if} /></td> <!--Visibility Checkbox-->
                <td><button onclick="window.location.href='category_edit?id={$category['id']}'" type="button" class="btn btn-warning">Edit</button></td> <!--Edit Botton-->
-               <td><button onclick="window.location.href='category_delete&id={$category['id']}'" type="button" class="btn btn-danger">Delete</button></td> <!--Delete Botton-->
+               <td><button onclick="window.location.href='category_delete?id={$category['id']}'" type="button" class="btn btn-danger">Delete</button></td> <!--Delete Botton-->
            </tr>
 {/foreach}
         </tbody>

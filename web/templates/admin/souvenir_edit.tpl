@@ -9,9 +9,9 @@
     <div id="souvenir_edit_left" class="col-md-6">
         <form class="form-horizontal" method="post" action="?module=admin&action=souvenir_save" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                <label for="souvenir_name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="souvenir_name" value="{$souvenir_info['name']}">
+                    <input type="text" class="form-control" name="souvenir_name" value="{$souvenir_info['name']}" id="souvenir_name">
                 </div>
             </div>
             <div class="form-group">
@@ -50,11 +50,6 @@
             </div>
             <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Add Image</label>
-                <div  id="filediv"><input name="file[]" type="file" id="file"/></div>
-                <input type="button" id="add_more" class="upload" value="Add More Files"/>
-            </div>
-            <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label"></label>
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-success" name="submit">Save</button>
@@ -62,6 +57,10 @@
             </div>
 
         </form>
+    </div>
+
+    <div id="souvenir_edit_images" class="col-md-6">
+        <iframe style="width: 100%; height: auto; border: 0px;" src="souvenir_view_images{if $souvenir_info.id neq 0}?id={$souvenir_info['id']}{/if}" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' />
     </div>
 
 

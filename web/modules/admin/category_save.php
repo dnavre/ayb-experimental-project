@@ -26,7 +26,7 @@ else{
     $stmt->bindParam(':cat_id', $id);
     $stmt->execute();
 }
-header("Location: ?module=admin&action=category");
+header("Location: category");
 
 
 

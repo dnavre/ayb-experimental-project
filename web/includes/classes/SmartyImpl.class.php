@@ -19,7 +19,7 @@ class SmartyImpl extends Smarty {
         $this->setTemplateDir(ROOT . '/templates');
         $this->setCompileDir(ROOT . '/cache/templates_compile/');
         $this->setCacheDir(ROOT . '/cache/templates_cache/');
-
+        $this->assign('ROOT', 'http://localhost/souvenir-shop/web');
 
         if(isset($_GET['error_id'])) {
 

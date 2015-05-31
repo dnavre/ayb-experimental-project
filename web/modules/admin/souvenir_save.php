@@ -4,11 +4,6 @@ global $db;
 include_once (ROOT . "/includes/imageResizeClass.php");
 $irConfig = new ImageResizeConfig();
 
-if($_SERVER['CONTENT_LENGTH'] > '3000000'){
-    header("Location: ?module=admin&error_id=" . SS_ERROR_IMAGE_SIZE);
-    die();
-}
-
 
 
 $name = $_POST['souvenir_name'];
@@ -45,7 +40,8 @@ if($_POST['souvenir_id'] == '') {
         $publish_date = date('Y-m-d H:i:s a', time());
     }
 
-    $stmt = $db->prepare("INSERT INTO souvenir(name, description, category_id, price, visible, featured, create_date, publish_date) VALUES (:name, :description, :category_id, :price, :visible, :featured, now(), :publish_date)");
+    $stmt = $db->prepare("INSERT INTO souvenir(name, description, category_id, price, visible, featured, create_date, publish_date)
+                VALUES (:name, :description, :category_id, :price, :visible, :featured, now(), :publish_date)");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':category_id', $category_id);
@@ -83,51 +79,6 @@ else {
     $stmt->bindParam(':id', $_POST['souvenir_id']);
     $stmt->execute();
 }
-
-for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
-    if($_FILES['file']['name'][$i] != '') {
-        if ($_FILES['file']['error'][$i] == 0) {
-            $image_extension = array("jpg", "jpeg", "png");
-            $img_name = explode(".", $_FILES['file']['name'][$i]);
-            if (end($img_name) == $image_extension[0] || end($img_name) == $image_extension[1] || end($img_name) == $image_extension[2] && $_FILES['file']['type'][$i] == 'image/jpeg' || $_FILES['file']['type'][$i] == 'image/jpg' || $_FILES['file']['type'][$i] == 'image/png') {
-                if ($_FILES['file']['size'][$i] < 2000000) {
-                    if (!file_exists(ROOT . "/uploads/souvenirs/" . $id . "/")) {
-                        mkdir(ROOT . "/uploads/souvenirs/" . $id, 0777);
-                    }
-                    $irConfig->setHeight(200);
-                    $irConfig->setWidth(180);
-                    $irConfig->setTransparent(true);
-                    $thumb = imageResize($_FILES['file']['tmp_name'][$i], $irConfig);
-                    imagepng($thumb, ROOT . "/uploads/souvenirs/" . $id . "/" . $i . ".png", 9);
-                    imagedestroy($thumb);
-                    $img_final_path = ROOT . "/uploads/souvenirs/" . $id . "/" . $i . ".png";
-                    $stmt3 = $db->prepare("INSERT INTO photo(src, souvenir_id, title) VALUES (:src, :souvenir_id, :title)");
-                    $stmt3->bindParam(':src', $img_final_path);
-                    $stmt3->bindParam(':souvenir_id', $id);
-                    $stmt3->bindParam(':title', $name);
-                    $r = $stmt3->execute();
-                    if($i == 0) {
-                        $id_photo = $db->lastInsertId();
-                    }
-                } else {
-                    header("Location: ?module=admin&action=souvenir_edit&id=" . $id . "&error_id=" . SS_ERROR_IMAGE_SIZE);
-                    die();
-
-                }
-            } else {
-                header("Location: ?module=admin&action=souvenir_edit&id=" . $id . "&error_id=" . SS_ERROR_IMAGE_EXTENSION);
-                die();
-            }
-        } else {
-            header("Location: ?module=admin&action=souvenir_edit&id=" . $id . "&error_id=" . SS_ERROR_IMAGE_EXTENSION);
-        }
-    }
-}
-
-$statement3 = $db->prepare('UPDATE souvenir SET main_photo_id = :photo_id WHERE id = :souvenir_id');
-$statement3->bindParam(':photo_id', $id_photo);
-$statement3->bindParam(':souvenir_id', $id);
-$statement3->execute();
 
 header("Location: ?module=admin&action=souvenir");
 

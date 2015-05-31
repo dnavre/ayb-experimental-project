@@ -9,11 +9,11 @@ $stmt->execute();
     $sql_error = $stmt->errorInfo();
     if($sql_error[1] == '1451')
     {
-        header('Location: ?module=admin&action=category&error_id=' . SS_ERROR_SOUVENIRS_IN_CATEGORY);
+        header('Location: category?error_id=' . SS_ERROR_SOUVENIRS_IN_CATEGORY);
         die();
     }
 
-header('Location: ?module=admin&action=category');
+header('Location: category');
 
 
  

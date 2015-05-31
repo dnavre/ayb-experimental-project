@@ -1,0 +1,43 @@
+.main_image{
+    width: 400px;
+    clear: both;
+    border: solid 1px #898989;
+    border-radius: 5px;
+}
+.secondary_image{
+    margin: 20px 0;
+    clear: both;
+    height: 200px;
+}
+.view_image{
+    clear: both;
+    display: block;
+    float: left;
+    border: solid 1px #898989;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.photo_actions{
+    list-style: none;
+    padding-top: 50px;
+}
+.photo_actions li{
+    margin: 15px;
+}
+.photo_actions li a{
+    display: block;
+    color: #444;
+}
+.photo_actions li a img{
+    width: 20px;
+    margin-right: 20px;
+}
+#filediv{
+    margin-top: 20px;
+}
+#filediv input{
+    margin-left: 100px;
+}
+#submit_image{
+    text-align: center;
+}
