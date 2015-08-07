@@ -61,7 +61,7 @@ else {
     $result2 = $statement2->fetch();
 
     if($result2['publish_date'] == null && $visible === true) {
-        $publish_date = date('Y-m-d H:i:s a', time());
+        $publish_date = date('Y-m-d H:i:s', time());
     }
     else {
         $publish_date = null;
@@ -80,7 +80,7 @@ else {
     $stmt->execute();
 }
 
-header("Location: ?module=admin&action=souvenir");
+header("Location: souvenir");
 
 
 

@@ -16,8 +16,8 @@ $stmt->execute();
 $sql_error = $stmt->errorInfo();
 if($sql_error[1] == '1451')
 {
-    header('Location: ?module=admin&action=souvenir&error_id=' . SS_ERROR_IMAGE_IN_SOUVENIR);
+    header('Location: souvenir&error_id=' . SS_ERROR_IMAGE_IN_SOUVENIR);
     die();
 }
 
-header('Location: ?module=admin&action=souvenir');
+header('Location: souvenir');

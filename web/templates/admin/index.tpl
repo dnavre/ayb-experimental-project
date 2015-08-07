@@ -26,9 +26,9 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="souvenir">Souvenirs</a></li>
-                            <li {if $menu_item eq 'category'}class = "active"{/if}><a href="category">Categories</a></li>
-                            <li {if $menu_item eq 'page'}class = "active"{/if}><a href="page">Pages</a></li>
+                            <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="{$ROOT}/admin/souvenir">Souvenirs</a></li>
+                            <li {if $menu_item eq 'category'}class = "active"{/if}><a href="{$ROOT}/admin/category">Categories</a></li>
+                            <li {if $menu_item eq 'page'}class = "active"{/if}><a href="{$ROOT}/admin/page">Pages</a></li>
                         </ul>
                         <form class="navbar-form  navbar-right" role="search">
                             <div class="form-group">
