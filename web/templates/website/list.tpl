@@ -2,9 +2,9 @@
 {block name=main_content}
 
     <ul class="nav nav-pills nav-stacked col-md-3" id="categories">
-            <li {if $active_category eq 'all'}class="active"{/if}><a href="{$ROOT}/list">All Souvenirs</a></li>
+            <li {if $active_category eq 'all'}class="active"{/if}><a href="/list">All Souvenirs</a></li>
         {foreach $categories as $category}
-            <li {if $active_category eq $category.id}class="active"{/if}><a href="{$ROOT}/list/{$category.name}/{$category.id}">{$category.name}</a></li>
+            <li {if $active_category eq $category.id}class="active"{/if}><a href="/list/{$category.name}/{$category.id}">{$category.name}</a></li>
         {/foreach}
     </ul>
 

@@ -32,6 +32,6 @@ $smarty->assign("categories", $categories);
 $smarty->assign("active_category", $cat_id);
 $smarty->assign("souvenirs", $result);
 $smarty->assign("menu_item", "souvenir");
-$smarty->assign("css_link", "css/website/list.css");
+$smarty->assign("css_link", "/css/website/list.css");
 $smarty->assign("title", "Souvenirs | AYB Souvenir Shop");
 $smarty->display("website/list.tpl");

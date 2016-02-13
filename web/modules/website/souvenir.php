@@ -9,7 +9,7 @@
 
 $smarty->assign("menu_item", "souvenir");
 $smarty->assign("title", "Souvenir | AYB Souvenir Shop");
-$smarty->assign("css_link", "css/website/souvenir.css");
+$smarty->assign("css_link", "/css/website/souvenir.css");
 $smarty->display("website/souvenir.tpl");
 ?>
 

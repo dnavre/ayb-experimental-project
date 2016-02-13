@@ -1,7 +1,7 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="{$ROOT}/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="{$ROOT}/css/admin/view_images.css"/>
-    <script src="{$ROOT}/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/admin/view_images.css"/>
+    <script src="/js/bootstrap.js"></script>
 </head>
 {include file='admin/error.tpl'}
 {if $id neq 0}
@@ -9,17 +9,17 @@
     <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
     {foreach $souvenir_images as $image }
         <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image"{/if}>
-            <img src="{$ROOT}{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image" {else} class="main_image" {/if}/>
+            <img src="{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image" {else} class="main_image" {/if}/>
             {if $souvenir_info['main_photo_id'] neq $image['id'] }
                 <ul class="photo_actions">
                     <li>
                         <a href="souvenir_make_main_image?id={$image['id']}&souvenir_id={$souvenir_info['id']}">
-                            <img src="{$ROOT}/images/admin/up-icon.png">Make Main Image
+                            <img src="/images/admin/up-icon.png">Make Main Image
                         </a>
                     </li>
                     <li>
                         <a class="delete_image" href="souvenir_delete_image?id={$image['id']}&souvenir_id={$souvenir_info['id']}">
-                            <img src="{$ROOT}/images/admin/delete-icon.png">Delete Image
+                            <img src="/images/admin/delete-icon.png">Delete Image
                         </a>
                     </li>
                 </ul>

@@ -1,12 +1,12 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="{$ROOT}/css/website/main.css"/>
-    <link rel="stylesheet" type="text/css" href="{$ROOT}/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/website/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href='{$css_link}'/>
-    <link rel="icon" href="{$ROOT}/favicon.ico" type="favicon.ico"/>
-    <link rel="shortcut icon" href="{$ROOT}/favicon.ico" type="favicon.ico"/>
-    <script src="{$ROOT}/js/bootstrap.js"></script>
+    <link rel="icon" href="favicon.ico" type="favicon.ico"/>
+    <link rel="shortcut icon" href="favicon.ico" type="favicon.ico"/>
+    <script src="/js/bootstrap.js"></script>
     <script>
         (function(i,s,o,g,r,a,m){
         i['GoogleAnalyticsObject']=r;
@@ -36,7 +36,7 @@
             </ul>
         </div>
         <div id="logo">
-            <a href=""><img src="{$ROOT}/images/logo.png" alt="Ayb Souvenir Shop" title="Souvenir Shop Logo"/></a>
+            <a href=""><img src="/images/logo.png" alt="Ayb Souvenir Shop" title="Souvenir Shop Logo"/></a>
             <a href=""><h1 id="main_name">AYB School Souvenir Shop</h1></a>
         </div>
 
@@ -44,9 +44,9 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li {if $menu_item eq 'home'}class = "active"{/if}><a href="{$ROOT}/home">Home</a></li>
-                        <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="{$ROOT}/list">Products</a></li>
-                        <li {if $menu_item eq 'about'}class = "active"{/if}><a href="{$ROOT}/about">About Us</a></li>
+                        <li {if $menu_item eq 'home'}class = "active"{/if}><a href="/home">Home</a></li>
+                        <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="/list">Products</a></li>
+                        <li {if $menu_item eq 'about'}class = "active"{/if}><a href="/about">About Us</a></li>
                     </ul>
                     <form class="navbar-form  navbar-right" role="search">
                         <div class="form-group">
