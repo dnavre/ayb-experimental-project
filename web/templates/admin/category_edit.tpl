@@ -2,7 +2,7 @@
 {block name=content}
     {if $cat_info['id'] eq ''}<h3>Add Category</h3>
     {else}<h3>Edit Category</h3>{/if}
-    <form class="form-horizontal" action="?module=admin&action=category_save" method="post">
+    <form class="form-horizontal" action="/admin/category_save" method="post">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-5">
@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label"></label>
             <div class="col-sm-5">
-                <button type="submit" class="btn btn-success" name="submit">Save</button>
+                <button type="submit"  class="btn btn-success" name="submit">Save</button>
             </div>
         </div>
     </form>
