@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'ArianAMU';
+    src: url('../../fonts/Fonts/arnamu.eot');
+    src: url('../../fonts/Fonts/arnamu.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/Fonts/arnamu.woff2') format('woff2'),
+    url('../../fonts/Fonts/arnamu.woff') format('woff'),
+    url('../../fonts/Fonts/arnamu.ttf') format('truetype'),
+    url('../../fonts/Fonts/arnamu.svg#arian_amuregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.center-darker{
+    background-color: black;
+    opacity: 0.6;
+}
+
+.darker{
+    background-color: black;
+    opacity: 0.2;
+}
+
+.left-opacity-block {
+    width: 25%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.right-opacity-block {
+    width: 25%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    background-color: black;
+    right: 0;
+    opacity: 0.6;
+}
+.opacity-block {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    background-color: black;
+    left: 480px;
+    opacity: 0.2;
+}
+
+.slider-container {
+    width: 100%;
+    height: 455px;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+.slider {
+    width: 150%;
+    height: 455px;
+    /*background-color: #7142fa;*/
+    position: relative;
+    margin-left: -25%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slider-info {
+    height: 200px;
+    width: 670px;
+    position: absolute;
+    z-index: 5;
+    top: 91px;
+    left: 50%;
+    margin-left: -335px;
+}
+
+.title{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    font-family: ArianAMU;
+    color: #fefefe;
+}
+
+.slider-text{
+    position: absolute;
+    top: 52px;
+    width: 100%;
+    padding-top: 20px;
+    font-size: 16px;
+    font-family: ArianAMU;
+    color: #fefefe;
+    text-align: center;
+}
+
+.slider-shop_button {
+    position: absolute;
+    top: 163px;
+    display: inline-block;
+    width: 152px;
+    height: 35px;
+    left: 50%;
+    margin-left: -76px;
+
+}
+.button {
+    padding: 10px 60px;
+    text-decoration: none;
+    font-family: ArianAMU;
+    color: rgb(254, 254, 254);
+    font-size: 16px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: rgb(152, 69, 74);
+    background: -moz-linear-gradient(0deg, rgb(182, 69, 74) 0%, rgb(182, 69, 74) 47%);
+    background: -webkit-linear-gradient(0deg, rgb(182, 69, 74) 0%, rgb(182, 69, 74) 47%);
+    background: -o-linear-gradient(0deg, rgb(182, 69, 74) 0%, rgb(182, 69, 74) 47%);
+    background: -ms-linear-gradient(0deg, rgb(182, 69, 74) 0%, rgb(182, 69, 74) 47%);
+    background: linear-gradient(270deg, rgb(182, 69, 74) 0%, rgb(182, 69, 74) 47%);
+    -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 1);
+    -moz-box-shadow:    0px 1px 3px rgba(50, 50, 50, 1);
+    box-shadow:         0px 1px 3px rgba(50, 50, 50, 1);
+}
