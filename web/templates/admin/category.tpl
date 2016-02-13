@@ -21,7 +21,7 @@
                <td>{$i}</td>
                <td>{$category['name']}</td>
                <td>
-                   <a href="admin/souvenir/{$category['id']}">
+                   <a href="souvenir?category_id={$category['id']}">
                        {$category['souvenir_cnt']}
                    </a>
                </td> <!--Souvenir Quantity-->
