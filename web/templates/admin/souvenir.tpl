@@ -20,7 +20,7 @@
           <tr>
 
             <td>{$i}</td>
-            <td>{$souvenir['name']}</td> 
+            <td>{$souvenir['s_name']}</td>
             <td><input type="checkbox"  disabled {if $souvenir['visible'] eq 1} checked {/if} /></td>
             <td><input type="checkbox"  disabled {if $souvenir['featured'] eq 1} checked {/if}></td>
             <td><button onclick="window.location.href='souvenir_edit?id={$souvenir['id']}'" type="button" class="btn btn-warning">Edit</button></td>

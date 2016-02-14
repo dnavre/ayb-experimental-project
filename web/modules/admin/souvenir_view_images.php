@@ -6,7 +6,7 @@ global $db, $smarty;
 
 if(isset($_GET['id'])) {
     $id =1;
-    $query = $db->prepare("SELECT s.id, s.name, s.visible, s.description, s.category_id, s.price, s.featured, s.main_photo_id
+    $query = $db->prepare("SELECT s.id, s.s_name, s.visible, s.description, s.category_id, s.price, s.featured, s.main_photo_id
           FROM souvenir s WHERE s.id=:souvenir_id");
     $query->bindParam('souvenir_id', $_GET['id']);
     $query->execute();

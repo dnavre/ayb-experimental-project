@@ -4,7 +4,7 @@
     <ul class="nav nav-pills nav-stacked col-md-3" id="categories">
             <li {if $active_category eq 'all'}class="active"{/if}><a href="/list">All Souvenirs</a></li>
         {foreach $categories as $category}
-            <li {if $active_category eq $category.id}class="active"{/if}><a href="/list/{$category.name}/{$category.id}">{$category.name}</a></li>
+            <li {if $active_category eq $category.id}class="active"{/if}><a href="/list/{$category.c_name}/{$category.id}">{$category.c_name}</a></li>
         {/foreach}
     </ul>
 
@@ -17,7 +17,7 @@
                 <li class="souvenir">
                     <img src="{$souvenir.photo_src}" width="180" height="200">
                     <div class="souvenir_info">
-                        <span class="name">{$souvenir.name}</span>
+                        <span class="name">{$souvenir.s_name}</span>
                         <span class="price">{$souvenir.price}$</span>
                     </div>
                 </li>

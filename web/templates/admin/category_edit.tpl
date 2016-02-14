@@ -2,11 +2,11 @@
 {block name=content}
     {if $cat_info['id'] eq ''}<h3>Add Category</h3>
     {else}<h3>Edit Category</h3>{/if}
-    <form class="form-horizontal" action="?module=admin&action=category_save" method="post">
+    <form class="form-horizontal" action="/admin/category_save" method="post">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="category_name" value="{$cat_info['name']}"/>
+                <input type="text" class="form-control" name="category_name" value="{$cat_info['c_name']}"/>
             </div>
         </div>
         <div class="form-group">

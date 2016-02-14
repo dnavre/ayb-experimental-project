@@ -14,7 +14,7 @@ $statement->execute();
 $statement->setFetchMode(PDO::FETCH_ASSOC);
 $result = $statement->fetchAll();
 
-$stmt = $db->prepare("SELECT name FROM souvenir WHERE id=:id");
+$stmt = $db->prepare("SELECT s_name FROM souvenir WHERE id=:id");
 $stmt->bindParam(':id', $id);
 $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
