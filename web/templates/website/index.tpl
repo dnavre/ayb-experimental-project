@@ -36,7 +36,7 @@
             </ul>
         </div>
         <div id="logo">
-            <a href=""><img src="/images/logo.png" alt="Ayb Souvenir Shop" title="Souvenir Shop Logo"/></a>
+            <a href="/home"><img src="/images/logo.png" alt="Ayb Souvenir Shop" title="Souvenir Shop Logo"/></a>
             <a href=""><h1 id="main_name">AYB School Souvenir Shop</h1></a>
         </div>
 

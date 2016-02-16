@@ -18,7 +18,7 @@
                     <img src="{$souvenir.photo_src}" width="180" height="200">
                     <div class="souvenir_info">
                         <span class="name">{$souvenir.s_name}</span>
-                        <span class="price">{$souvenir.price}$</span>
+                        <span class="price">{$souvenir.price}AMD</span>
                     </div>
                 </li>
             {/foreach}
@@ -56,8 +56,8 @@
                         <li class="souvenir_sm">
                             <img src="{$souvenir.photo_src}">
                             <div class="souvenir_info">
-                                <span class="name_sm">{$souvenir.name}</span>
-                                <span class="price_sm">{$souvenir.price}$</span>
+                                <span class="name_sm">{$souvenir.s_name}</span>
+                                <span class="price_sm">{$souvenir.price}AMD</span>
                             </div>
                         </li>
                     {/if}
@@ -74,8 +74,8 @@
                     <li class="souvenir_sm">
                         <img src="{$souvenir.photo_src}">
                         <div class="souvenir_info">
-                            <span class="name_sm">{$souvenir.name}</span>
-                            <span class="price_sm">{$souvenir.price}$</span>
+                            <span class="name_sm">{$souvenir.s_name}</span>
+                            <span class="price_sm">{$souvenir.price}AMD </span>
                         </div>
                     </li>
                 {/foreach}

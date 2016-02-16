@@ -10,20 +10,20 @@
     {foreach $souvenir_images as $image }
         <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image"{/if}>
             <img src="{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image" {else} class="main_image" {/if}/>
-            {if $souvenir_info['main_photo_id'] neq $image['id'] }
                 <ul class="photo_actions">
+                    {if $souvenir_info['main_photo_id'] neq $image['id'] }
                     <li>
                         <a href="souvenir_make_main_image?id={$image['id']}&souvenir_id={$souvenir_info['id']}">
                             <img src="/images/admin/up-icon.png">Make Main Image
                         </a>
                     </li>
+                    {/if}
                     <li>
                         <a class="delete_image" href="souvenir_delete_image?id={$image['id']}&souvenir_id={$souvenir_info['id']}">
                             <img src="/images/admin/delete-icon.png">Delete Image
                         </a>
                     </li>
                 </ul>
-            {/if}
         </div>
     {/foreach}
     <div style="clear: both; margin-top: 100px;"></div>
@@ -37,7 +37,7 @@
     </div>
 {else}
     <div class="alert alert-warning" role="alert">
-        Please save souvenir first!!!
+        Please save souvenir first!
     </div>
 {/if}
 </form>
