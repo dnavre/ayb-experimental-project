@@ -1,7 +1,7 @@
 {extends file="admin/index.tpl"}
 {block name=content}
     <h1>Pages</h1>
-    <button type="button" class="new btn btn-success">Add New Page</button>
+    <button onclick="window.location.href='page_edit'" type="button" class="new btn btn-success">Add New Page</button>
     <table class="table table-hover">
         <thead>
         <th width="5%">#</th>
@@ -11,20 +11,18 @@
         <th></th>
         </thead>
         <tbody class="">
-        <tr>
-            <td>1</td>
-            <td>About Us</td>
-            <td><input type="checkbox" value="" disabled checked/></td>
-            <td><button type="button" class="btn btn-warning">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Contacts</td>
-            <td><input type="checkbox" value="" disabled /></td>
-            <td><button type="button" class="btn btn-warning">Edit</button></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td>
-        </tr>
+        {assign var=i value=0}
+        {foreach $pages as $page}
+            {assign var=i value=$i+1}
+            <tr>
+
+                <td>{$i}</td>
+                <td>{$page['title']}</td>
+                <td><input type="checkbox"  disabled {if $page['visible'] eq 1} checked {/if} /></td>
+                <td><button onclick="window.location.href='page_edit?id={$page['id']}'" type="button" class="btn btn-warning">Edit</button></td>
+                <td><button onclick="window.location.href='page_delete?id={$page['id']}'" type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+        {/foreach}
         </tbody>
     </table>
 {/block}
