@@ -4,9 +4,9 @@
 <title>{$souvenir[0]['s_name']}</title>
 <div class="row" style="width:100%">
     <div class="col-md-7">
-        <img width="100%" src="{if isset($photo)} {$photo[0]['src']}{/if} ">
+        <img width="100%" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
     {foreach from=$photo item=pics}
-                <div style="display:flex" class="col-md-3"><img src="{$pics['src']}"></div>
+                <div style="display:flex" class="col-md-3"><img src="{if (!empty($pics))}{$pics['src']}{/if}"></div>
     {/foreach}
     </div>
     <div class="col-md-4">

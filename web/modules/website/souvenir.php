@@ -1,6 +1,8 @@
 <?php
+//require_once "modules/website/404.php";
 
 global $db, $smarty;
+
 if(isset($_GET['id'])) {
     $sql = "SELECT s.id, s.s_name, s.price, s.description, s.category_id, s.create_date, s.main_photo_id, c.id, c.c_name
             FROM souvenir s
@@ -22,18 +24,19 @@ if(isset($_GET['id'])) {
     $stmt1->execute();
     $stmt1->setFetchMode(PDO::FETCH_ASSOC);
     $result1 = $stmt1->fetchall();
+    if(empty($result1)){
+        $result1 = [[   ]];
+    }
+
+
+    $smarty->assign("menu_item", "souvenir");
+    $smarty->assign("title", "Souvenir | AYB Souvenir Shop");
+    $smarty->assign("css_link", "/css/website/souvenir.css");
+    $smarty -> assign("souvenir", $result);
+    $smarty -> assign("photo", $result1);
+    $smarty->display("website/souvenir.tpl");
 
 }
-else{
-    $result = ['id'=>'', 's_name' => '', 'visible'=>'0'];
-    $result1 = [];
-}
 
-$smarty->assign("menu_item", "souvenir");
-$smarty->assign("title", "Souvenir | AYB Souvenir Shop");
-$smarty->assign("css_link", "/css/website/souvenir.css");
-$smarty -> assign("souvenir", $result);
-$smarty -> assign("photo", $result1);
-$smarty->display("website/souvenir.tpl");
 
 ?>
