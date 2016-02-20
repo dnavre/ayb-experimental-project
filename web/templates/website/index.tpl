@@ -128,7 +128,7 @@
             </a>
         </div>
         <div class="footer-copyright">
-            <span class="copyright"> Copyright © AYBschool 2014</span>
+            <span class="copyright"> Copyright &copy; AYBschool 2014</span>
         </div>
     </div>
 </div>
