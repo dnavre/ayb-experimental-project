@@ -62,7 +62,7 @@
   <div class="header-container">
     <div class="header">
         <div class="logo">
-            <img class="logo-image" src="../../photos/Logo.png">
+            <img class="logo-image" src="../../images/Logo.png">
         </div>
         <ul class="menu">
             <li><a href="#">Home</a></li>
@@ -73,7 +73,7 @@
         <div class = "searchpanel-content">
             <input class="search" type="text" placeholder="Search">
             <a class="search_button" href="#">
-                <img class="search_icon" src="../Photos/search.png">
+                <img class="search_icon" src="../images/search.png">
             </a>
         </div>
         <div class="languages">
@@ -114,17 +114,17 @@
 <div class="footer-container">
     <div class="footer">
         <div class="footer-shape">
-            <img class="shape" src="../Photos/Shape 4.png">
+            <img class="shape" src="../images/Shape 4.png">
         </div>
         <div class="footer-socal">
             <a class="socal" href="#">
-                <img class="socal-icon" src="../Photos/youtube.png">
+                <img class="socal-icon" src="../images/youtube.png">
             </a>
             <a class="socal" href="#">
-                <img class="socal-icon" src="../Photos/twitter.png">
+                <img class="socal-icon" src="../images/twitter.png">
             </a>
             <a class="socal" href="#">
-                <img class="socal-icon" src="../Photos/facebook.png">
+                <img class="socal-icon" src="../images/facebook.png">
             </a>
         </div>
         <div class="footer-copyright">

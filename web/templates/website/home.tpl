@@ -22,13 +22,13 @@
     <div class="opacity-block"></div> -->
     <div class="slider">
         <ul class="bxslider">
-            <li><img src="../../Photos/slide.jpg" /></li>
-            <li><img src="../../Photos/slide1.jpg" /></li>
-            <li><img src="../../Photos/slide2.jpg" /></li>
-            <li><img src="../../Photos/slide3.jpg" /></li>
-            <li><img src="../../Photos/slide4.jpg" /></li>
-            <li><img src="../../Photos/slide5.jpg" /></li>
-            <li><img src="../../Photos/slide6.jpg" /></li>
+            <li><img src="../../images/slide.jpg" /></li>
+            <li><img src="../../images/slide1.jpg" /></li>
+            <li><img src="../../images/slide2.jpg" /></li>
+            <li><img src="../../images/slide3.jpg" /></li>
+            <li><img src="../../images/slide4.jpg" /></li>
+            <li><img src="../../images/slide5.jpg" /></li>
+            <li><img src="../../images/slide6.jpg" /></li>
         </ul>
         <div class="slider-info">
             <div class="title">
@@ -48,8 +48,6 @@
         $('.bxslider').bxSlider({
             auto: true,
             autoControls: true,
-            minSlides: 3,
-            maxSlides: 3,
             moveSlides: 1,
             slideWidth: 1024,
 
@@ -58,19 +56,8 @@
                 $($slideElement).children().first().toggleClass('center-darker');
                 console.log ($($slideElement).children().first());
             },
-            onSlideAfter:  function($slideElement, oldIndex, newIndex){ 
-                $($slideElement).children().first().toggleClass('center-darker');
-                 console.log ($($slideElement).children().first());
-            }, 
-            onSlideNext:  function($slideElement, oldIndex, newIndex){ 
-                $($slideElement).children().first().toggleClass('center-darker');
-                console.log ($($slideElement).children().first());
-            }, 
-            onSlidePrev:  function($slideElement, oldIndex, newIndex){ 
-                $($slideElement).children().first().toggleClass('center-darker');
-                console.log ($($slideElement).children().first());
-            }, 
-        });
+        
+            });
 
     });
 </script>
