@@ -19,7 +19,9 @@ class SmartyImpl extends Smarty {
         $this->setTemplateDir(ROOT . '/templates');
         $this->setCompileDir(ROOT . '/cache/templates_compile/');
         $this->setCacheDir(ROOT . '/cache/templates_cache/');
-        $this->assign('ROOT', '/');
+
+
+        $this->assign('_ROOT', $this->calculateRootPath());
 
         if(isset($_GET['error_id'])) {
 
@@ -30,6 +32,12 @@ class SmartyImpl extends Smarty {
         }
 
         $this->caching = Smarty::CACHING_OFF;
+    }
+
+    private function calculateRootPath() {
+        $directoryCount = substr_count($_SERVER['REQUEST_URI'], "/");
+
+        return str_repeat("../", $directoryCount);
     }
 
     public function setTitle($title) {

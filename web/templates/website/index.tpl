@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href='{$css_link}'/>
     <link rel="icon" href="favicon.ico" type="favicon.ico"/>
     <link rel="shortcut icon" href="favicon.ico" type="favicon.ico"/>
-    <link rel="stylesheet" type="text/css"  href="../css/website/index.css">
+    <link rel="stylesheet" type="text/css"  href="/css/website/index.css">
     <script src="/js/bootstrap.js"></script>
    <!-- <script>
         (function(i,s,o,g,r,a,m){
@@ -30,7 +30,7 @@
   <div class="header-container">
     <div class="header">
         <div class="logo">
-            <img class="logo-image" src="../../images/Logo.png">
+            <img class="logo-image" src="/images/Logo.png">
         </div>
         <ul class="menu">
             <li><a href="/home" {if $menu_item eq 'home'}class = "menu_active"{/if}>Home</a></li>
@@ -41,7 +41,7 @@
         <div class = "searchpanel-content">
             <input class="search" type="text" placeholder="Search">
             <a class="search_button" href="#">
-                <img class="search_icon" src="../images/search.png">
+                <img class="search_icon" src="/images/search.png">
             </a>
         </div>
         <div class="languages">
@@ -63,17 +63,17 @@
 <div class="footer-container">
     <div class="footer">
         <div class="footer-shape">
-            <img class="shape" src="../images/Shape 4.png">
+            <img class="shape" src="/images/Shape 4.png">
         </div>
         <div class="footer-socal">
             <a class="socal" href="#">
-                <img class="socal-icon" src="../images/youtube.png">
+                <img class="socal-icon" src="/images/youtube.png">
             </a>
             <a class="socal" href="#">
-                <img class="socal-icon" src="../images/twitter.png">
+                <img class="socal-icon" src="/images/twitter.png">
             </a>
             <a class="socal" href="#">
-                <img class="socal-icon" src="../images/facebook.png">
+                <img class="socal-icon" src="/images/facebook.png">
             </a>
         </div>
         <div class="footer-copyright">
