@@ -27,48 +27,16 @@
 
 </head>
 <body>
-<!--<div id="header">
-        <div id="language">
-            <ul>
-                <li class="active"><a href="">ENG</a></li>
-                <li ><a href="">RUS</a></li>
-                <li ><a href="">ARM</a></li>
-            </ul>
-        </div>
-        <div id="logo">
-            <a href=""><img src="/images/logo.png" alt="Ayb Souvenir Shop" title="Souvenir Shop Logo"/></a>
-            <a href=""><h1 id="main_name">AYB School Souvenir Shop</h1></a>
-        </div>
-
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li {if $menu_item eq 'home'}class = "active"{/if}><a href="/home">Home</a></li>
-                        <li {if $menu_item eq 'souvenir'}class = "active"{/if}><a href="/list">Products</a></li>
-                        <li {if $menu_item eq 'about'}class = "active"{/if}><a href="/about">About Us</a></li>
-                    </ul>
-                    <form class="navbar-form  navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </div>
--->
-  
   <div class="header-container">
     <div class="header">
         <div class="logo">
             <img class="logo-image" src="../../images/Logo.png">
         </div>
         <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a href="/home" {if $menu_item eq 'home'}class = "menu_active"{/if}>Home</a></li>
+            <li><a href="/shop" {if $menu_item eq 'souvenir'}class = "menu_active"{/if}>Shop</a></li>
+            <li><a href="/about" {if $menu_item eq 'about'}class = "menu_active"{/if}>About us</a></li>
+            <li><a href="/contacts" {if $menu_item eq 'contact'}class = "menu_active"{/if}>Contact us</a></li>
         </ul>
         <div class = "searchpanel-content">
             <input class="search" type="text" placeholder="Search">
@@ -91,25 +59,6 @@
     </div>
     <div class="clr"></div>
     <div id="footer">
-      <!--   <div id="copyright">
-            <span>All Rights Reserved &copy; AYB Web-Development Class</span>
-        </div>
-       <iframe id="maps" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d190.39592482609945!2d44.52867511918894!3d40.22385771492381!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2bce1cbf64f%3A0x85260d9b22d017a!2sAyb+High+School!5e0!3m2!1sru!2s!4v1424531345385" width="300" height="200" frameborder="0" style="border:0"></iframe>
-        <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=182799588557942&version=v2.0";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-like-box" data-href="https://www.facebook.com/aybsouvenirshop" data-height="205" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="false"></div>
-        <div id="form">
-                <a id="form_pop_up" href="#"></a>
-        </div> -->
-   <!-- <div id="wrapper">
-    </div> -->
-
 </div>
 <div class="footer-container">
     <div class="footer">
