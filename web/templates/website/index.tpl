@@ -39,10 +39,12 @@
             <li><a href="/contacts" {if $menu_item eq 'contact'}class = "menu_active"{/if}>Contact us</a></li>
         </ul>
         <div class = "searchpanel-content">
-            <input class="search" type="text" placeholder="Search">
-            <a class="search_button" href="#">
-                <img class="search_icon" src="/images/search.png">
-            </a>
+            <form method="get" action="/search">
+                <input class="search" type="text" placeholder="Search" name="q">
+                <a class="search_button" href="#">
+                    <img class="search_icon" src="/images/search.png">
+                </a>
+            </form>
         </div>
         <div class="languages">
             <a href="#" class="language">Arm</a>

@@ -1,6 +1,5 @@
 <?php
 
-var_dump($_SERVER);
 
 $smarty->assign("menu_item", "search");
 $smarty->assign("css_link", "/css/website/list.css");
