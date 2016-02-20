@@ -74,6 +74,13 @@
 
     });
 </script>
+<div class="latest-prodacts-container">
+    <div class="latest-prodacts">
+        <p>Latest products</p>
+    </div>
+    <div class="latest-prodacts-list">
+    </div>
+</div>
 </body>
 </html>
 

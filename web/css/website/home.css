@@ -109,8 +109,8 @@
     height: 35px;
     left: 50%;
     margin-left: -76px;
-
 }
+
 .button {
     padding: 10px 60px;
     text-decoration: none;
@@ -130,3 +130,17 @@
     -moz-box-shadow:    0px 1px 3px rgba(50, 50, 50, 1);
     box-shadow:         0px 1px 3px rgba(50, 50, 50, 1);
 }
+
+.latest-prodacts-container {
+    width: 100%;
+    
+    margin: 0 auto;
+    background-color: #222e44;
+} 
+ .latest-products {
+    padding: 10px 60px;
+    text-decoration: none;
+    font-family: ArianAMU;
+    color: rgb(254, 254, 254);
+    font-size: 16px;
+ }
