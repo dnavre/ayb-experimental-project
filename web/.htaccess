@@ -7,6 +7,7 @@ RewriteRule ^admin$ %{REQUEST_URI}/souvenir [R,L]
 RewriteRule ^([a-zA-Z0-9]+)$ index.php?module=website&action=$1 [QSA,L]
 RewriteRule ^souvenir/.*[^\/]+/([0-9]*)$ index.php?module=website&action=souvenir&id=$1 [QSA,L]
 RewriteRule ^shop/.*[^\/]+/([0-9]*)$ index.php?module=website&action=shop&id=$1 [QSA,L]
+RewriteRule ^search?q=(.*)$ index.php?module=website&action=search&q=$1 [QSA,L]
 
 
 RewriteRule ^admin/([a-zA-Z0-9_]+) index.php?module=admin&action=$1 [QSA,L]

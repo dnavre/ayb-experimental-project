@@ -31,4 +31,8 @@ class SmartyImpl extends Smarty {
 
         $this->caching = Smarty::CACHING_OFF;
     }
+
+    public function setTitle($title) {
+        $this->assign("_title", $title . " | AYB Souvenir Shop");
+    }
 }
