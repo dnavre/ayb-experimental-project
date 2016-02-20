@@ -49,13 +49,7 @@
             auto: true,
             autoControls: true,
             moveSlides: 1,
-            slideWidth: 1024,
-
-
-            onSlideBefore:  function($slideElement, oldIndex, newIndex){ 
-                $($slideElement).children().first().toggleClass('center-darker');
-                console.log ($($slideElement).children().first());
-            },
+            slideWidth: 1500,
         
             });
 

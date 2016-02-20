@@ -14,46 +14,6 @@ body {
     background-color: #222e44;
 }
 
-.center-darker{
-    background-color: black;
-    opacity: 0.6;
-}
-
-.darker{
-    background-color: black;
-    opacity: 0.2;
-}
-
-.left-opacity-block {
-    width: 25%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-    background-color: black;
-    opacity: 0.6;
-}
-
-.right-opacity-block {
-    width: 25%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 3;
-    background-color: black;
-    right: 0;
-    opacity: 0.6;
-}
-.opacity-block {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    z-index: 3;
-    background-color: black;
-    left: 480px;
-    opacity: 0.2;
-}
 
 .slider-container {
     width: 100%;
@@ -66,7 +26,7 @@ body {
 .slider {
     width: 150%;
     height: 455px;
-    /*background-color: #7142fa;*/
+    background-color: #222e44;
     position: relative;
     margin-left: -25%;
     text-align: center;
@@ -132,6 +92,10 @@ body {
     -webkit-box-shadow: 0px 1px 3px rgba(50, 50, 50, 1);
     -moz-box-shadow:    0px 1px 3px rgba(50, 50, 50, 1);
     box-shadow:         0px 1px 3px rgba(50, 50, 50, 1);
+}
+
+div.slider-shop_button a{
+    color: white;
 }
 
 .latest-prodacts-container {
