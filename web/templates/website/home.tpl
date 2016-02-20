@@ -2,19 +2,9 @@
 {block name="main_content"}
    <!-- <p>We are in Home page</p> -->
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Souvenir Shop</title>
-    <!--<link rel="stylesheet" type="text/css"  href="../CSS/home.css"> -->
-    <!-- jQuery library (served from Google) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!-- bxSlider Javascript file -->
-    <script src="../../js/slider/jquery.bxslider.min.js"></script>
+<script src="../../js/slider/jquery.bxslider.min.js"></script>
     <!-- bxSlider CSS file -->
     <link href="../../js/slider/jquery.bxslider.css" rel="stylesheet" />
-</head>
-<body>
 
 <div class="slider-container">
    <!-- <div class="left-opacity-block"></div>
@@ -49,8 +39,7 @@
             auto: true,
             autoControls: true,
             moveSlides: 1,
-            slideWidth: 1500,
-        
+            slideWidth: 1024
             });
 
     });
@@ -62,8 +51,7 @@
     <div class="latest-prodacts-list">
     </div>
 </div>
-</body>
-</html>
+
 
 {/block}
 

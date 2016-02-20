@@ -96,18 +96,17 @@ body {
 
 div.slider-shop_button a{
     color: white;
+    text-decoration: none;
 }
 
 .latest-prodacts-container {
-    width: 100%;
-    
+    width: 50%;
     margin: 0 auto;
-    background-color: #222e44;
 } 
  .latest-products {
-    padding: 10px 60px;
+    padding: 35px 10px;
     text-decoration: none;
     font-family: ArianAMU;
-    color: rgb(254, 254, 254);
+    color: white;
     font-size: 16px;
  }
