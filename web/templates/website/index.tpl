@@ -36,7 +36,7 @@
   <div class="header-container">
     <div class="header">
         <div class="logo">
-            <img class="logo-image" src="/images/Logo.png">
+            <a href="/home"><img class="logo-image" src="/images/Logo.png"></a>
         </div>
         <ul class="menu">
             <li><a href="/home" {if $menu_item eq 'home'}class = "menu_active"{/if}>Home</a></li>
