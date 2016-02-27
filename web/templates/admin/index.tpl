@@ -11,7 +11,8 @@
     <script type="text/javascript">
         tinymce.init({
             selector: "textarea",
-            toolbar: false
+            plugins: "table, textcolor",
+            toolbar: ['fontselect fontsizeselect forecolor backcolor | bullist numlist outdent indent table ']
         });
     </script>
 </head>

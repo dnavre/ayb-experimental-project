@@ -30,8 +30,8 @@ if ($_FILES['file']['error'] == 0) {
             if (!file_exists(ROOT . "/uploads/souvenirs/" . $id . "/")) {
                 mkdir(ROOT . "/uploads/souvenirs/" . $id, 0777);
             }
-            $irConfig->setHeight(200);
-            $irConfig->setWidth(180);
+            $irConfig->setHeight(getimagesize(($_FILES['file']['tmp_name']))[1]);
+            $irConfig->setWidth(getimagesize(($_FILES['file']['tmp_name']))[0]);
             $irConfig->setTransparent(true);
             $thumb = imageResize($_FILES['file']['tmp_name'], $irConfig);
             imagepng($thumb, ROOT . "/uploads/souvenirs/" . $id . "/". $photo_name .".png", 9);

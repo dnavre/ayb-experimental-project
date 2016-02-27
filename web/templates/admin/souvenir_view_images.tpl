@@ -9,7 +9,7 @@
     <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
     {foreach $souvenir_images as $image }
         <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image"{/if}>
-            <img src="{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image" {else} class="main_image" {/if}/>
+            <img src="{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image pics" {else} class="main_image" {/if}/>
                 <ul class="photo_actions">
                     {if $souvenir_info['main_photo_id'] neq $image['id'] }
                     <li>
