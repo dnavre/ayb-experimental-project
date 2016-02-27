@@ -3,6 +3,6 @@
 $smarty->assign("menu_item", "about");
 $smarty->assign("css_link", "/css/website/list.css");
 
-$smarty->setTitle("About Us");
+$smarty->setTitle("Contacts");
 
-$smarty->display("website/about.tpl");
+$smarty->display("website/contacts.tpl");

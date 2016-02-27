@@ -2,13 +2,12 @@
 
 global $db, $smarty;
 if(isset($_GET['id'])) {
-    $stmt = $db->prepare("SELECT id, title, visible FROM page WHERE id=".$_GET['id']);
+    $stmt = $db->prepare("SELECT id, title, visible, content FROM page WHERE id=".$_GET['id']);
     $stmt->execute();
 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetch();
 
-    //var_dump($result);
 }
 else {
     $result = ['id'=>'', 'title' => '', 'visible'=>'0'];
