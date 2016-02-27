@@ -6,7 +6,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="category_name" value="{$cat_info['name']}"/>
+                <input type="text" class="form-control" name="category_name" value="{$cat_info['c_name']}" required/>
             </div>
         </div>
         <div class="form-group">

@@ -15,6 +15,7 @@ if($_POST['cat_id'] == '')
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':visible', $visible);
     $stmt->execute();
+ //   var_dump($stmt ->errorInfo());
 }
 else{
     echo "else case";
@@ -29,7 +30,7 @@ else{
     $stmt->execute();
 }
 
-//header("Location: category");
+header("Location: category");
 
 
 

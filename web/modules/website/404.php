@@ -36,7 +36,7 @@ http_response_code(404);
     <title>404 Not Found</title>
 </head>
 <body>
-<img src="images/logo.png">
+<img src="/images/logo.png">
 <h1>404 Not Found!</h1>
 <h3>Please check entered url</h3>
 </body>

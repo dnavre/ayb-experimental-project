@@ -23,7 +23,7 @@ else {
 $description = $_POST['souvenir_description'];
 
 
-$statement = $db->prepare("SELECT id FROM category WHERE name = :category_name");
+$statement = $db->prepare("SELECT id FROM category WHERE c_name = :category_name");
 $statement->bindParam(':category_name', $_POST['souvenir_category']);
 $statement->execute();
 
@@ -40,7 +40,7 @@ if($_POST['souvenir_id'] == '') {
         $publish_date = date('Y-m-d H:i:s a', time());
     }
 
-    $stmt = $db->prepare("INSERT INTO souvenir(name, description, category_id, price, visible, featured, create_date, publish_date)
+    $stmt = $db->prepare("INSERT INTO souvenir(s_name, description, category_id, price, visible, featured, create_date, publish_date)
                 VALUES (:name, :description, :category_id, :price, :visible, :featured, now(), :publish_date)");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':description', $description);
@@ -68,7 +68,7 @@ else {
     }
     $id = $_POST['souvenir_id'];
 
-    $stmt = $db->prepare("UPDATE souvenir SET name = :name, description = :description, category_id = :category_id, price = :price, visible = :visible, featured = :featured, publish_date = :publish_date WHERE id = :id");
+    $stmt = $db->prepare("UPDATE souvenir SET s_name = :name, description = :description, category_id = :category_id, price = :price, visible = :visible, featured = :featured, publish_date = :publish_date WHERE id = :id");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':category_id', $category_id);

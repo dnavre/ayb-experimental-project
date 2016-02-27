@@ -14,13 +14,13 @@
                 {if $smarty.foreach.foo.index == 6}
                     {break}
                 {/if}
-                <li class="souvenir">
-                    <img src="{$souvenir.photo_src}" width="180" height="200">
+                 <li class="souvenir">
+                    <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.photo_src}" width="180" height="200"></a>
                     <div class="souvenir_info">
-                        <span class="name">{$souvenir.name}</span>
-                        <span class="price">{$souvenir.price}$</span>
+                        <span class="name">{$souvenir.s_name}</span>
+                        <span class="price">{$souvenir.price}AMD</span>
                     </div>
-                </li>
+                </li></a>
             {/foreach}
         </ul>
         <nav>
@@ -54,10 +54,10 @@
                 {/if}
                     {if $souvenir.featured eq 1}
                         <li class="souvenir_sm">
-                            <img src="{$souvenir.photo_src}">
+                            <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.photo_src}"></a>
                             <div class="souvenir_info">
-                                <span class="name_sm">{$souvenir.name}</span>
-                                <span class="price_sm">{$souvenir.price}$</span>
+                                <span class="name_sm">{$souvenir.s_name}</span>
+                                <span class="price_sm">{$souvenir.price}AMD</span>
                             </div>
                         </li>
                     {/if}
@@ -72,10 +72,10 @@
                         {break}
                     {/if}
                     <li class="souvenir_sm">
-                        <img src="{$souvenir.photo_src}">
+                        <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.photo_src}"></a>
                         <div class="souvenir_info">
-                            <span class="name_sm">{$souvenir.name}</span>
-                            <span class="price_sm">{$souvenir.price}$</span>
+                            <span class="name_sm">{$souvenir.s_name}</span>
+                            <span class="price_sm">{$souvenir.price}AMD</span>
                         </div>
                     </li>
                 {/foreach}

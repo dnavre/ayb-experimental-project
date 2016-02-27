@@ -14,17 +14,14 @@ $statement->execute();
 $statement->setFetchMode(PDO::FETCH_ASSOC);
 $result = $statement->fetchAll();
 
-$stmt = $db->prepare("SELECT name FROM souvenir WHERE id=:id");
+$stmt = $db->prepare("SELECT s_name FROM souvenir WHERE id=:id");
 $stmt->bindParam(':id', $id);
 $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $souv_info = $stmt->fetch();
 
-$name = $souv_info['name'];
+$name = $souv_info['s_name'];
 $photo_name = end($result)['id']+1;
-
-var_dump($_FILES);
-
 if ($_FILES['file']['error'] == 0) {
     $image_extension = array("jpg", "jpeg", "png", "JPG");
     $img_name = explode(".", $_FILES['file']['name']);
@@ -39,7 +36,7 @@ if ($_FILES['file']['error'] == 0) {
             $thumb = imageResize($_FILES['file']['tmp_name'], $irConfig);
             imagepng($thumb, ROOT . "/uploads/souvenirs/" . $id . "/". $photo_name .".png", 9);
             imagedestroy($thumb);
-            $img_final_path = ROOT . "/uploads/souvenirs/" . $id . "/". $photo_name .".png";
+            $img_final_path = "/uploads/souvenirs/" . $id . "/". $photo_name .".png";
             $stmt3 = $db->prepare("INSERT INTO photo(src, souvenir_id, title) VALUES (:src, :souvenir_id, :title)");
             $stmt3->bindParam(':src', $img_final_path);
             $stmt3->bindParam(':souvenir_id', $id);
