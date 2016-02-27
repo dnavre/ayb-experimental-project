@@ -3,11 +3,11 @@
 global $db, $smarty, $error;
 
    
-$stmt = $db->prepare("select c.id, c.c_name, c.visible, count(s.id) souvenir_cnt
+$stmt = $db->prepare("select c.id, c.name, c.visible, count(s.id) souvenir_cnt
         from category c
         left join souvenir s on s.category_id=c.id
         group by c.id
-        order by c.c_name");
+        order by c.name");
 $stmt->execute();
 
 $stmt->setFetchMode(PDO::FETCH_ASSOC);

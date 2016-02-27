@@ -5,10 +5,10 @@ global $db, $smarty;
 if(isset($_GET['category_id'])) {
 
         // Fetching souvenirs
-        $stmt = $db->prepare("select c.id, c.s_name, c.description, c.price, c.visible, c.featured, c.publish_date, c.main_photo_id
+        $stmt = $db->prepare("select c.id, c.name, c.description, c.price, c.visible, c.featured, c.publish_date, c.main_photo_id
         from souvenir c
         where c.category_id = :cat_id
-        order by c.s_name");
+        order by c.name");
         $stmt->bindParam(':cat_id', $_GET['category_id']);
         $stmt->execute();
 
@@ -17,23 +17,23 @@ if(isset($_GET['category_id'])) {
 
         // Fetching category name
 
-        $cat_stmt = $db->prepare("select c.c_name
+        $cat_stmt = $db->prepare("select c.name
         from category c
         where c.id = :cat_id
-        order by c.c_name");
+        order by c.name");
         $cat_stmt->bindParam(':cat_id', $_GET['category_id']);
         $cat_stmt->execute();
 
         $cat_stmt->setFetchMode(PDO::FETCH_ASSOC);
         $cat_name = $cat_stmt->fetchAll();
-        $smarty -> assign("catid", $cat_name[0]['c_name']);
+        $smarty -> assign("catid", $cat_name[0]['name']);
         //var_dump($cat_name);
 
 }
 else{
-        $stmt = $db->prepare("select c.id, c.s_name, c.description, c.price, c.visible, c.featured, c.publish_date, c.main_photo_id
+        $stmt = $db->prepare("select c.id, c.name, c.description, c.price, c.visible, c.featured, c.publish_date, c.main_photo_id
         from souvenir c
-        order by c.s_name");
+        order by c.name");
         $stmt->execute();
 
         $stmt->setFetchMode(PDO::FETCH_ASSOC);

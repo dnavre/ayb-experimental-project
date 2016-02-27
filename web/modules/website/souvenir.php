@@ -4,7 +4,7 @@
 global $db, $smarty;
 
 if(isset($_GET['id'])) {
-    $sql = "SELECT s.id, s.s_name, s.price, s.description, s.category_id, s.create_date, s.main_photo_id, c.id, c.c_name
+    $sql = "SELECT s.id, s.name s_name, s.price, s.description, s.category_id, s.create_date, s.main_photo_id, c.id, c.name c_name
             FROM souvenir s
             LEFT JOIN category c ON s.category_id=c.id
             WHERE s.id = :id";
@@ -25,12 +25,10 @@ if(isset($_GET['id'])) {
     $stmt1->setFetchMode(PDO::FETCH_ASSOC);
     $result1 = $stmt1->fetchall();
     if(empty($result1)){
-        $result1 = [[   ]];
+        require_once ('modules/website/404.php');
     }
-
-
     $smarty->assign("menu_item", "souvenir");
-    $smarty->assign("title", "Souvenir | AYB Souvenir Shop");
+    $smarty->setTitle($result[0]['s_name']);
     $smarty->assign("css_link", "/css/website/souvenir.css");
     $smarty -> assign("souvenir", $result);
     $smarty -> assign("photo", $result1);

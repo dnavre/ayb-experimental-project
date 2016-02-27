@@ -19,7 +19,7 @@
     <div id="wrapper">
         <div id="header" class="clr">
             <h1>SS Admin Panel</h1>
-            <div id="LinkToSite"><a href="{$ROOT}">Back to Site</a></div>
+            <div id="LinkToSite"><a href="/">Back to Site</a></div>
         </div>
         <div id="menu">
             <nav class="navbar navbar-default">

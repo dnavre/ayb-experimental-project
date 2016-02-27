@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label for="souvenir_name" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="souvenir_name" value="{$souvenir_info['s_name']}" id="souvenir_name" required/>
+                    <input type="text" class="form-control" name="souvenir_name" value="{$souvenir_info['name']}" id="souvenir_name" required/>
                 </div>
             </div>
             <div class="form-group">
@@ -19,7 +19,7 @@
                 <div class="col-sm-10">
                     <select class="form-control" name="souvenir_category">
                         {foreach $categories as $category}
-                            <option {if $category['id'] eq {$souvenir_info['category_id']}}selected{/if}>{$category['c_name']}</option>
+                            <option {if $category['id'] eq {$souvenir_info['category_id']}}selected{/if}>{$category['name']}</option>
                         {/foreach}
                     </select>
                 </div>

@@ -19,7 +19,7 @@
             {assign var=i value=$i+1}
            <tr>
                <td>{$i}</td>
-               <td>{$category['c_name']}</td>
+               <td>{$category['name']}</td>
                <td>
                    <a href="souvenir?category_id={$category['id']}">
                        {$category['souvenir_cnt']}

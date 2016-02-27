@@ -1,7 +1,6 @@
 {extends file="admin/index.tpl"}
 {block name=content}
     <h1>Pages</h1>
-    <button onclick="window.location.href='page_edit'" type="button" class="new btn btn-success">Add New Page</button>
     <table class="table table-hover">
         <thead>
         <th width="5%">#</th>
