@@ -9,7 +9,6 @@
             {foreach from=$photo item=pics}
                 <div style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 pic_list"></div>
             {/foreach}
-            {*{$photo|var_dump}*}
         </div>
         <div class="col-md-4">
             <h2>{$souvenir[0]['s_name']}</h2>
