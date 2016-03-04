@@ -84,6 +84,9 @@ ul.menu li a {
 
 
 }
+ul.menu li a:visited{
+   
+}
 
 ul.menu li a:hover {
     text-decoration: underline;

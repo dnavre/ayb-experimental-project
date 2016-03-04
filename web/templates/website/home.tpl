@@ -39,7 +39,9 @@
             auto: true,
             autoControls: true,
             moveSlides: 1,
-            slideWidth: 1024
+            slideWidth: 1024,
+            responsive: true,
+            controls: false
             });
 
     });
@@ -49,6 +51,58 @@
         <p>Latest products</p>
     </div>
     <div class="latest-prodacts-list">
+        <div class="product">
+            <div class="product-image">
+                <img src="../../images/mmm.png">
+            </div>
+            <div class="text-price">
+                <div class="product-name">
+                    Ayb school copybook
+                </div>
+                <div class="product-price">
+                    36000 amd
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                 <img src="../../images/ll.png">
+            </div>
+            <div class="text-price">
+                <div class="product-name">
+                    Ayb school copybook
+                </div>
+                <div class="product-price">
+                    1600 amd
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                 <img src="../../images/oiu.png">
+            </div>
+            <div class="text-price">
+                <div class="product-name">
+                    Ayb school copybook
+                </div>
+                <div class="product-price">
+                    36000 amd
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="product-image">
+                 <img src="../../images/mpp.png">
+            </div>
+            <div class="text-price">
+                <div class="product-name">
+                    Ayb school copybook
+                </div>
+                <div class="product-price">
+                    3600 amd
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
