@@ -50,6 +50,7 @@
     <div class="latest-prodacts">
         <p>Latest products</p>
     </div>
+     
     <div class="latest-prodacts-list">
         <div class="product">
             <div class="product-image">
@@ -64,6 +65,7 @@
                 </div>
             </div>
         </div>
+  
         <div class="product">
             <div class="product-image">
                  <img src="../../images/ll.png">
@@ -103,6 +105,32 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+
+<div class="featured-prodacts-container">
+    <div class="latest-prodacts">
+        <p>Featured products</p>
+    </div>
+
+    <div class="featured-prodacts-list">
+    {foreach from=$featured key=id item=souvenir name=foo}
+
+        <div class="product">
+            <div class="product-image">
+                <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.path}"></a>
+            </div>
+            <div class="text-price">
+                <div class="product-name">
+                    {$souvenir.s_name}
+                </div>
+                <div class="product-price">
+                    {$souvenir.price} amd
+                </div>
+            </div>
+        </div>
+    {/foreach}
     </div>
 </div>
 

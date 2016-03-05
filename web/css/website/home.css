@@ -105,6 +105,12 @@ div.slider-shop_button a{
     margin-top: 50px;
 } 
 
+.featured-prodacts-container{
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
  .latest-prodacts {
     height: 50px;
     width: 100%;
@@ -121,6 +127,13 @@ div.latest-prodacts p{
 }
 
 .latest-prodacts-list{
+    margin-top: 20px;
+    padding-left: 36px;
+    margin-right: 28px;
+    width: 100%;
+    position: relative;
+}
+.featured-prodacts-list{
     margin-top: 20px;
     padding-left: 36px;
     margin-right: 28px;
