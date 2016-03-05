@@ -15,12 +15,15 @@
                     {break}
                 {/if}
                  <li class="souvenir">
-                    <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.photo_src}" width="180" height="200"></a>
+                    <a href="/souvenir?id={$souvenir.id}">
+                    <div class="souvenir_pic" style="background-image:url({$souvenir.photo_src})">
                     <div class="souvenir_info">
                         <span class="name">{$souvenir.name}</span>
                         <span class="price">{$souvenir.price}AMD</span>
                     </div>
-                </li></a>
+                    </div>
+                    </a>
+                </li>
             {/foreach}
         </ul>
         <nav>
@@ -54,11 +57,14 @@
                 {/if}
                     {if $souvenir.featured eq 1}
                         <li class="souvenir_sm">
-                            <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.photo_src}"></a>
+                            <a href="/souvenir?id={$souvenir.id}">
+                                <div class="souvenir_pic_sm" style="background-image:url({$souvenir.photo_src})">
                             <div class="souvenir_info">
                                 <span class="name_sm">{$souvenir.name}</span>
                                 <span class="price_sm">{$souvenir.price}AMD</span>
                             </div>
+                                </div>
+                            </a>
                         </li>
                     {/if}
                 {/foreach}
@@ -72,11 +78,14 @@
                         {break}
                     {/if}
                     <li class="souvenir_sm">
-                        <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.photo_src}"></a>
-                        <div class="souvenir_info">
-                            <span class="name_sm">{$souvenir.name}</span>
-                            <span class="price_sm">{$souvenir.price}AMD</span>
-                        </div>
+                        <a href="/souvenir?id={$souvenir.id}">
+                            <div class="souvenir_pic_sm" style="background-image:url({$souvenir.photo_src})">
+                                <div class="souvenir_info">
+                                    <span class="name_sm">{$souvenir.name}</span>
+                                    <span class="price_sm">{$souvenir.price}AMD</span>
+                                </div>
+                            </div>
+                        </a>
                     </li>
                 {/foreach}
             </ul>
