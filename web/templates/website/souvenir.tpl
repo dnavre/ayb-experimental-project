@@ -6,7 +6,7 @@
     <div class="row" style="width:100%">
         <div class="col-md-7">
             <div class = "main_pic">
-                <img width="100%" onload="this.width/=2;this.onload=null;" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
+                <img width="100%" onload="this.width/=1.5;this.onload=null;" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
             </div>
             {foreach from=$photo item=pics}
                 <div style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 pic_list"></div>
