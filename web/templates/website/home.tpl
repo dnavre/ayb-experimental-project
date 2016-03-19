@@ -4,7 +4,11 @@
 
 <script src="../../js/slider/jquery.bxslider.min.js"></script>
     <!-- bxSlider CSS file -->
-    <link href="../../js/slider/jquery.bxslider.css" rel="stylesheet" />
+<link href="../../js/slider/jquery.bxslider.css" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" href="/js/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/js/slick/slick-theme.css"/>
+
 
 <div class="slider-container">
    <!-- <div class="left-opacity-block"></div>
@@ -28,83 +32,33 @@
                 "AYB" souvenir shop founded by "AYB" Alumni Club, which aims to promote "high" community enhancement and development.
             </div>
             <div class="slider-shop_button">
-                <a href="#" class="button">SHOP</a>
+                <a href="/shop" {if $menu_item eq 'souvenir'}class = "menu_active"{/if} class="button">SHOP</a>
             </div>
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-        $('.bxslider').bxSlider({
-            auto: true,
-            autoControls: true,
-            moveSlides: 1,
-            slideWidth: 1024,
-            responsive: true,
-            controls: false
-            });
 
-    });
-</script>
 <div class="latest-prodacts-container">
     <div class="latest-prodacts">
         <p>Latest products</p>
     </div>
      
     <div class="latest-prodacts-list">
+        {foreach from=$latest key=id item=souvenir name=foo}
         <div class="product">
             <div class="product-image">
-                <img src="../../images/mmm.png">
+                <a href="/souvenir/{$souvenir.sname}/{$souvenir.id}"><img src="{$souvenir.src}"></a>
             </div>
             <div class="text-price">
                 <div class="product-name">
-                    Ayb school copybook
+                     <a href="/souvenir/{$souvenir.sname}/{$souvenir.id}">{$souvenir.sname}</a>
                 </div>
                 <div class="product-price">
-                    36000 amd
+                     {$souvenir.price} amd
                 </div>
             </div>
         </div>
-  
-        <div class="product">
-            <div class="product-image">
-                 <img src="../../images/ll.png">
-            </div>
-            <div class="text-price">
-                <div class="product-name">
-                    Ayb school copybook
-                </div>
-                <div class="product-price">
-                    1600 amd
-                </div>
-            </div>
-        </div>
-        <div class="product">
-            <div class="product-image">
-                 <img src="../../images/oiu.png">
-            </div>
-            <div class="text-price">
-                <div class="product-name">
-                    Ayb school copybook
-                </div>
-                <div class="product-price">
-                    36000 amd
-                </div>
-            </div>
-        </div>
-        <div class="product">
-            <div class="product-image">
-                 <img src="../../images/mpp.png">
-            </div>
-            <div class="text-price">
-                <div class="product-name">
-                    Ayb school copybook
-                </div>
-                <div class="product-price">
-                    3600 amd
-                </div>
-            </div>
-        </div>
+        {/foreach}
     </div>
 </div>
 
@@ -114,16 +68,15 @@
         <p>Featured products</p>
     </div>
 
-    <div class="featured-prodacts-list">
+    <div class="featured-products-list" data-slick='{ldelim}"slidesToShow": 4, "slidesToScroll": 4 {rdelim}'>
     {foreach from=$featured key=id item=souvenir name=foo}
-
-        <div class="product">
+        <div class="product" >
             <div class="product-image">
-                <a href="/souvenir?id={$souvenir.id}"><img src="{$souvenir.path}"></a>
+                <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}"><img src="{$souvenir.src}"></a>
             </div>
             <div class="text-price">
                 <div class="product-name">
-                    {$souvenir.s_name}
+                    <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}">{$souvenir.s_name}</a>
                 </div>
                 <div class="product-price">
                     {$souvenir.price} amd
@@ -133,6 +86,24 @@
     {/foreach}
     </div>
 </div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="/js/slick/slick.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.featured-products-list').slick({
+        autoPlay: true,
+        slidesToShow:4,
+        slidesToScroll: 1,
+        arrows: true
+      });
+    });
+  </script>
+
+
+
 
 
 {/block}

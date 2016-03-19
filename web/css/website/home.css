@@ -155,7 +155,7 @@ div.product-image img{
     width: 100%;
 }
 
-.product-name{
+div.product-name a{
     font-family: ArianAMU;
     font-size: 16px;
     color: white;

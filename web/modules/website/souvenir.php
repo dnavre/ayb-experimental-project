@@ -33,7 +33,6 @@ if(isset($_GET['id'])) {
     $smarty -> assign("souvenir", $result);
     $smarty -> assign("photo", $result1);
     $smarty->display("website/souvenir.tpl");
-
 }
 
 
