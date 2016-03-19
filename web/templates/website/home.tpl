@@ -43,15 +43,15 @@
         <p>Latest products</p>
     </div>
      
-    <div class="latest-prodacts-list">
+    <div class="latest-prodacts-list" data-slick='{ldelim}"slidesToShow": 4, "slidesToScroll": 4 {rdelim}'>
         {foreach from=$latest key=id item=souvenir name=foo}
         <div class="product">
             <div class="product-image">
-                <a href="/souvenir/{$souvenir.sname}/{$souvenir.id}"><img src="{$souvenir.src}"></a>
+                <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}"><img src="{$souvenir.src}"></a>
             </div>
             <div class="text-price">
                 <div class="product-name">
-                     <a href="/souvenir/{$souvenir.sname}/{$souvenir.id}">{$souvenir.sname}</a>
+                     <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}">{$souvenir.s_name}</a>
                 </div>
                 <div class="product-price">
                      {$souvenir.price} amd
@@ -91,6 +91,17 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/js/slick/slick.min.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.latest-prodacts-list').slick({
+        autoPlay: true,
+        slidesToShow:4,
+        slidesToScroll: 1,
+        arrows: true
+      });
+    });
+  </script>
+  
 <script type="text/javascript">
     $(document).ready(function(){
       $('.featured-products-list').slick({
