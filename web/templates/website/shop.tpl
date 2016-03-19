@@ -24,19 +24,19 @@
         </ul>
         <nav>
             <ul class="pagination" id="pagination">
-                {if $page neq 1}
+                {if $page neq 1 AND $cur_page neq 1}
                 <li>
-                    <a href="#" aria-label="Previous">
+                    <a href="?page={$cur_page-1}" aria-label="Next">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
                 {/if}
                 {for $page_num=1 to $page}
-                    <li><a href="?page={$page_num}">{$page_num}</a></li>
+                    <li><a {if $page_num eq $cur_page} class="pagination_active"{/if} href="?page={$page_num}">{$page_num}</a></li>
                 {/for}
-                {if $page neq 1}
+               {if $page neq 1 AND $cur_page neq $page}
                 <li>
-                    <a href="#" aria-label="Next">
+                    <a href="?page={$cur_page+1}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

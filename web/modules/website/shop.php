@@ -52,7 +52,8 @@ else $paging=floor($res['COUNT(*)']/10)+1;
 
 */
 
-$smarty->assign('page',$paging);
+$smarty->assign('cur_page', $_GET['page']);
+$smarty->assign('page', $paging);
 $smarty->assign("categories", $categories);
 $smarty->assign("active_category", $cat_id);
 $smarty->assign("souvenirs", $result);

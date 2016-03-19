@@ -17,7 +17,6 @@
 
                 <td>{$i}</td>
                 <td>{$page['title']}</td>
-                <td><input type="checkbox"  disabled {if $page['visible'] eq 1} checked {/if} /></td>
                 <td><button onclick="window.location.href='page_edit?id={$page['id']}'" type="button" class="btn btn-warning">Edit</button></td>
             </tr>
         {/foreach}
