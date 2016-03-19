@@ -10,10 +10,7 @@
     <div id="souvenirs">
         <ul>
             {foreach from=$souvenirs key=id item=souvenir name=foo}
-                {if $smarty.foreach.foo.index == 6}
-                    {break}
-                {/if}
-                 <li class="souvenir">
+                <li class="souvenir">
                     <a href="/souvenir?id={$souvenir.id}">
                     <div class="souvenir_pic" style="background-image:url({$souvenir.photo_src})">
                     <div class="souvenir_info">
