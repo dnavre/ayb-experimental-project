@@ -7,6 +7,7 @@ include_once (ROOT . "/includes/imageResizeClass.php");
 $irConfig = new ImageResizeConfig();
 
 $id = $_POST['souvenir_id'];
+echo $id;
 $statement = $db->prepare("SELECT id FROM photo WHERE souvenir_id = :id");
 $statement->bindParam(':id', $id);
 $statement->execute();
@@ -22,7 +23,7 @@ $souv_info = $stmt->fetch();
 
 $name = $souv_info['name'];
 $photo_name = end($result)['id']+1;
-if ($_FILES['file']['error'] == 0) {
+if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
     $image_extension = array("jpg", "jpeg", "png", "JPG");
     $img_name = explode(".", $_FILES['file']['name']);
     if (in_array(end($img_name), $image_extension) && $_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/jpg' || $_FILES['file']['type'] == 'image/png') {
@@ -52,8 +53,8 @@ if ($_FILES['file']['error'] == 0) {
         die();
     }
 } else {
-
     header("Location: souvenir_view_images?id=" . $id . "&error_id=" . SS_ERROR_IMAGE_EXTENSION);
+    die();
 }
 
 header("Location: souvenir_view_images?id=" . $id);

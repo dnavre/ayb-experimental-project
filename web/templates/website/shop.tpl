@@ -7,7 +7,6 @@
             <li {if $active_category eq $category.id}class="active"{/if}><a href="/shop/{$category.name}/{$category.id}">{$category.name}</a></li>
         {/foreach}
     </ul>
-
     <div id="souvenirs">
         <ul>
             {foreach from=$souvenirs key=id item=souvenir name=foo}
@@ -28,21 +27,23 @@
         </ul>
         <nav>
             <ul class="pagination" id="pagination">
+                {if $page neq 1}
                 <li>
                     <a href="#" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a class="pagination_active" href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
+                {/if}
+                {for $page_num=1 to $page}
+                    <li><a href="?page={$page_num}">{$page_num}</a></li>
+                {/for}
+                {if $page neq 1}
                 <li>
                     <a href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                {/if}
             </ul>
         </nav>
     </div>

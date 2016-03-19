@@ -15,7 +15,6 @@ if(isset($_GET['id'])) {
     $query = $db->prepare("SELECT s.id, s.name, s.visible, s.description, s.category_id, s.price, s.featured
           FROM souvenir s WHERE s.id=".$_GET['id']);
     $query->execute();
-
     $query->setFetchMode(PDO::FETCH_ASSOC);
     $souvenir_info = $query->fetch();
 

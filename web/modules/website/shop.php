@@ -27,7 +27,27 @@ else{
     $cat_id = "all";
 }
 
+$page_st = $db -> prepare("SELECT COUNT(*) FROM souvenir");
+$page_st -> execute();
+$page_st->setFetchMode(PDO::FETCH_ASSOC);
+$res = $page_st->fetch();
+if($res['COUNT(*)']%10 == 0){
+    $paging = $res['COUNT(*)']/10;
+}
+else $paging=floor($res['COUNT(*)']/10)+1;
 
+if(isset($_GET['page'])){
+    $page_num = (($_GET['page']-1)*10);
+    echo $page_num;
+    $q = $db -> prepare("SELECT * FROM souvenir LIMIT 10 OFFSET :pagenum");
+    $q->bindParam(':pagenum', $page_num);
+    $q->execute();
+    $q->setFetchMode(PDO::FETCH_ASSOC);
+    $r = $q->fetchAll();
+    var_dump($r);
+}
+
+$smarty->assign('page',$paging);
 $smarty->assign("categories", $categories);
 $smarty->assign("active_category", $cat_id);
 $smarty->assign("souvenirs", $result);
