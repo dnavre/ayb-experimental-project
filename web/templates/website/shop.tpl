@@ -22,9 +22,11 @@
                 </li>
             {/foreach}
         </ul>
+        {if $page neq 1}
         <nav>
             <ul class="pagination" id="pagination">
-                {if $page neq 1 AND $cur_page neq 1}
+
+                    {if $cur_page neq 1}
                 <li>
                     <a href="?page={$cur_page-1}" aria-label="Next">
                         <span aria-hidden="true">&laquo;</span>
@@ -34,7 +36,7 @@
                 {for $page_num=1 to $page}
                     <li><a {if $page_num eq $cur_page} class="pagination_active"{/if} href="?page={$page_num}">{$page_num}</a></li>
                 {/for}
-               {if $page neq 1 AND $cur_page neq $page}
+               {if $cur_page neq $page}
                 <li>
                     <a href="?page={$cur_page+1}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
@@ -43,6 +45,7 @@
                 {/if}
             </ul>
         </nav>
+        {/if}
     </div>
 
     <div id="more_souvenirs">
