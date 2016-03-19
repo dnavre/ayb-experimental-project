@@ -101,7 +101,7 @@
       });
     });
   </script>
-  
+
 <script type="text/javascript">
     $(document).ready(function(){
       $('.featured-products-list').slick({
@@ -113,9 +113,4 @@
     });
   </script>
 
-
-
-
-
 {/block}
-
