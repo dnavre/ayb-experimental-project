@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href='{$css_link}'/>
     <link rel="icon" href="favicon.ico" type="favicon.ico"/>
     <link rel="shortcut icon" href="favicon.ico" type="favicon.ico"/>
-    <link rel="stylesheet" type="text/css"  href="/css/website/index.css">
     <script src="/js/bootstrap.js"></script>
    <!-- <script>
         (function(i,s,o,g,r,a,m){

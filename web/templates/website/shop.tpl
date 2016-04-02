@@ -1,10 +1,10 @@
 {extends file="website/index.tpl"}
 {block name=main_content}
 
-    <ul class="nav nav-pills nav-stacked col-md-3" id="categories">
-            <li {if $active_category eq 'all'}class="active"{/if}><a href="/shop">All Souvenirs</a></li>
-        {foreach $categories as $category}
-            <li {if $active_category eq $category.id}class="active"{/if}><a href="/shop/{$category.name}/{$category.id}">{$category.name}</a></li>
+    <ul class="nav nav-pills nav-stacked col-md-3 shop_menu_style" id="categories">
+            <li {if $active_category eq 'all'}class="item_active" {else} class= "shop_menu_item" {/if}> <a class="shop_menu_item_style" href="/shop">All Souvenirs</a></li>
+        {foreach $categories as $category name=categoryForeach}
+            <li  class="{if $smarty.foreach.categoryForeach.last} last_shop_menu_item {else}shop_menu_item{/if} {if $active_category eq $category.id}item_active {else} shop_menu_item {/if}"> <a class="shop_menu_item_style" href="/shop/{$category.name}/{$category.id}">{$category.name}</a></li>
         {/foreach}
     </ul>
     <div id="souvenirs">
