@@ -15,21 +15,17 @@ body {
 }
 
 
-.pic_list {
+.thumbnail {
     background-size:cover;
     background-repeat:no-repeat;
     background-position: 50% 50%;
     width:200px;
     height:200px;
+    margin-top:20px;
 }
 
 .main_pic{
 	margin-top: 30px;
 
-}
-
-.pic_list{
-
-	margin-top:20px;
 }
 

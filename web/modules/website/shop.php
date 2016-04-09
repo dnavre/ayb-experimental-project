@@ -32,6 +32,20 @@ $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $result = $stmt->fetchAll();
 
+$stmt1 = $db->prepare("SELECT s.id, s.name, s.price, s.featured, p.src photo_src
+FROM souvenir s left join photo p on s.main_photo_id = p.id WHERE s.visible=1
+ORDER BY s.create_date DESC LIMIT 3");
+$stmt1->execute();
+$stmt1->setFetchMode(PDO::FETCH_ASSOC);
+$new_result = $stmt1->fetchAll();
+
+$stmt2 = $db->prepare("SELECT s.id, s.name, s.price, s.featured, p.src photo_src
+FROM souvenir s left join photo p on s.main_photo_id = p.id WHERE s.visible=1 and (s.featured = 1)
+ORDER BY s.name");
+$stmt2->execute();
+$stmt2->setFetchMode(PDO::FETCH_ASSOC);
+$feat_result = $stmt2->fetchAll();
+
 $page_st = $db -> prepare("SELECT COUNT(*) FROM souvenir WHERE 1=1 and(:getter = -1 OR category_id=:getter)");
 $page_st->bindParam(':getter', $getter);
 $page_st -> execute();
@@ -48,7 +62,9 @@ $smarty->assign('cur_page', $_GET['page']);
 $smarty->assign('page', $paging);
 $smarty->assign("categories", $categories);
 $smarty->assign("active_category", $cat_id);
+$smarty->assign("feat_souvenirs", $feat_result);
 $smarty->assign("souvenirs", $result);
+$smarty->assign("new_souvenirs", $new_result);
 $smarty->assign("menu_item", "souvenir");
 $smarty->assign("css_link", "/css/website/list.css");
 $smarty->setTitle("Shop");

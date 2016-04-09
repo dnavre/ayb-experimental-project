@@ -2,11 +2,10 @@
 {block name=main_content}
     <script>
         $(document).ready(function(){
-            $(".pic_list").click(function(){
-                //$(this).removeClass('col-md-3');
-                //$(this).removeClass('pic_list');
-                $(this).addClass('col-md-7');
-                $('.main_pic').hide();
+            $(".thumbnail").click(function(e){
+                var bg = $(e.target).css('background-image');
+                bg = bg.replace('url("','').replace('")','');
+                $("#main_image").attr('src', bg);
             });
         });
     </script>
@@ -15,10 +14,10 @@
     <div class="row" style="width:100%">
         <div class="col-md-7">
             <div class = "main_pic">
-                <img width="100%" onload="this.width/=1.5;this.onload=null;" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
+                <img id="main_image" width="100%" onload="this.width/=1.5;this.onload=null;" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
             </div>
             {foreach from=$photo item=pics}
-                <div id="{$pics['id']}" style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 pic_list"></div>
+                <div id="{$pics['id']}" style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 thumbnail"></div>
             {/foreach}
         </div>
         <div class="col-md-4">

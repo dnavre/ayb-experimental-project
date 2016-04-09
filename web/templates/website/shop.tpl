@@ -52,11 +52,10 @@
         <div id="featured_souvenirs">
             <h4>Featured Souvenirs</h4>
             <ul class="souvenir_sm_list">
-                {foreach from=$souvenirs key=id item=souvenir name=foo}
+                {foreach from=$feat_souvenirs key=id item=souvenir name=foo}
                 {if $smarty.foreach.foo.index == 3}
                     {break}
                 {/if}
-                    {if $souvenir.featured eq 1}
                         <li class="souvenir_sm">
                             <a href="/souvenir?id={$souvenir.id}">
                                 <div class="souvenir_pic_sm" style="background-image:url({$souvenir.photo_src})">
@@ -67,14 +66,14 @@
                                 </div>
                             </a>
                         </li>
-                    {/if}
+
                 {/foreach}
             </ul>
         </div>
         <div id="new_souvenirs">
             <h4>New Souvenirs</h4>
             <ul class="souvenir_sm_list">
-                {foreach from=$souvenirs key=id item=souvenir name=foo}
+                {foreach from=$new_souvenirs key=id item=souvenir name=foo}
                     {if $smarty.foreach.foo.index == 3}
                         {break}
                     {/if}
