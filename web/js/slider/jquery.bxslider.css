@@ -33,6 +33,8 @@
 	-moz-box-shadow: 0 0 5px #ccc;
 	-webkit-box-shadow: 0 0 5px #ccc;
 	box-shadow: 0 0 5px #ccc;
+   border:  5px solid #fff;
+	left: -5px;
 	background: #fff;
 	
 	/*fix other elements on the page moving (on Chrome)*/
@@ -199,23 +201,4 @@
 	display: block;
 	font-size: .85em;
 	padding: 10px;
-}
-
-.bxslider{
-	width: 1024px;
-	height: 455px;
-	margin: 0 auto;
-	text-align: center;
-	background-color: black;
-}
-
-.bxslider li {
-	width: 100%;
-	height: 100%;
-
-}
-
-.bxslider li img {
-	width: 100%;
-	opacity: 0.75;
 }
