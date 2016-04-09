@@ -12,7 +12,7 @@ $result = $stmt->fetchAll();
 
 if(isset($_GET['id'])) {
 
-    $query = $db->prepare("SELECT s.id, s.name, s.visible, s.description, s.category_id, s.price, s.featured
+    $query = $db->prepare("SELECT s.id, s.name, s.name_arm, s.visible, s.description, s.description_arm, s.category_id, s.price, s.featured
           FROM souvenir s WHERE s.id=".$_GET['id']);
     $query->execute();
     $query->setFetchMode(PDO::FETCH_ASSOC);
@@ -28,7 +28,7 @@ if(isset($_GET['id'])) {
     $souvenir_images = $queryGetImages->fetchAll();
 }
 else {
-    $souvenir_info = ['id'=>'', 'name' => '', 'visible'=>'0', 'description' => '', 'category_id' => '', 'price' => '', 'featured' => '0', 'photo_src' => ''];
+    $souvenir_info = ['id'=>'', 'name' => '', 'name_arm' => '', 'visible'=>'0', 'description' => '', 'description_arm' => '', 'category_id' => '', 'price' => '', 'featured' => '0', 'photo_src' => ''];
     $souvenir_images = [];
 }
 

@@ -24,13 +24,13 @@ $page_num = ($_GET['page']*9)-9;
 if($page_num == -1) $page_num = 0;
 
 $stmt = $db->prepare("SELECT s.id, s.name, s.price, s.featured, p.src photo_src
-FROM souvenir s left join photo p on s.main_photo_id = p.id WHERE s.visible=1 and (:getter = -1 or s.category_id=:getter) ORDER BY s.create_date DESC LIMIT :p, 9");
+FROM souvenir s left join photo p on s.main_photo_id = p.id WHERE s.visible=1 and (:getter = -1 or s.category_id=:getter)
+ ORDER BY s.create_date DESC LIMIT :p, 9");
 $stmt->bindParam(':p', $page_num, PDO::PARAM_INT );
 $stmt->bindParam(':getter', $getter);
 $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $result = $stmt->fetchAll();
-echo count($result);
 
 $page_st = $db -> prepare("SELECT COUNT(*) FROM souvenir WHERE 1=1 and(:getter = -1 OR category_id=:getter)");
 $page_st->bindParam(':getter', $getter);

@@ -15,7 +15,7 @@ if(isset($_GET['id'])) {
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchall();
 
-    $sql1 = "SELECT p.souvenir_id, p.src
+    $sql1 = "SELECT p.id, p.souvenir_id, p.src
     FROM photo p
     WHERE P.souvenir_id = :id";
     $stmt1 = $db->prepare($sql1);

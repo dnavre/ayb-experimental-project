@@ -1,6 +1,15 @@
 {extends file="website/index.tpl"}
 {block name=main_content}
-
+    <script>
+        $(document).ready(function(){
+            $(".pic_list").click(function(){
+                //$(this).removeClass('col-md-3');
+                //$(this).removeClass('pic_list');
+                $(this).addClass('col-md-7');
+                $('.main_pic').hide();
+            });
+        });
+    </script>
 {if isset($souvenir[0])}
     <title>{$souvenir[0]['name']}</title>
     <div class="row" style="width:100%">
@@ -9,7 +18,7 @@
                 <img width="100%" onload="this.width/=1.5;this.onload=null;" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
             </div>
             {foreach from=$photo item=pics}
-                <div style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 pic_list"></div>
+                <div id="{$pics['id']}" style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 pic_list"></div>
             {/foreach}
         </div>
         <div class="col-md-4">

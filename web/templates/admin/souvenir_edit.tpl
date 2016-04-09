@@ -15,6 +15,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="souvenir_name" class="col-sm-2 control-label">Name in Armenian</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="souvenir_name_arm" value="{$souvenir_info['name_arm']}" id="souvenir_name" required/>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Category</label>
                 <div class="col-sm-10">
                     <select class="form-control" name="souvenir_category">
@@ -46,6 +52,12 @@
                 <label for="inputEmail3" class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
                     <textarea rows="10" name="souvenir_description" >{$souvenir_info['description']}</textarea>
+                </div>
+            </div>
+            <div class="form-group" style="margin-right: -16px;">
+                <label for="inputEmail3" class="col-sm-2 control-label">Description in Armenian</label>
+                <div class="col-sm-10">
+                    <textarea rows="10" name="souvenir_description_arm" >{$souvenir_info['description_arm']}</textarea>
                 </div>
             </div>
             <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">

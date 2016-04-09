@@ -10,6 +10,12 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Name in Armenian</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" name="category_name_arm" value="{$cat_info['name_arm']}" required/>
+            </div>
+        </div>
+        <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Visible</label>
             <div class="col-sm-5">
                 <input style="margin-top: 11px;" type="checkbox" name="category_visible" {if $cat_info['visible'] eq '1'}checked{/if}/>

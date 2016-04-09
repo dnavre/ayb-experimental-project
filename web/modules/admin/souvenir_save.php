@@ -7,6 +7,7 @@ $irConfig = new ImageResizeConfig();
 
 
 $name = $_POST['souvenir_name'];
+$name_arm = $_POST['souvenir_name_arm'];
 $price = $_POST['souvenir_price'];
 if(isset($_POST['souvenir_visible'])){
     $visible = true;
@@ -21,6 +22,7 @@ else {
     $featured = false;
 }
 $description = $_POST['souvenir_description'];
+$description_arm = $_POST['souvenir_description_arm'];
 
 
 $statement = $db->prepare("SELECT id FROM category WHERE name = :category_name");
@@ -68,8 +70,10 @@ else {
     }
     $id = $_POST['souvenir_id'];
 
-    $stmt = $db->prepare("UPDATE souvenir SET name = :name, description = :description, category_id = :category_id, price = :price, visible = :visible, featured = :featured, publish_date = :publish_date WHERE id = :id");
+    $stmt = $db->prepare("UPDATE souvenir SET name = :name, description = :description, name_arm = :name_arm, description_arm = :description_arm, category_id = :category_id, price = :price, visible = :visible, featured = :featured, publish_date = :publish_date WHERE id = :id");
     $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':name_arm', $name_arm);
+    $stmt->bindParam(':description_arm', $description_arm);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':category_id', $category_id);
     $stmt->bindParam(':price', $price);

@@ -2,7 +2,7 @@
 
 global $db, $smarty;
 if(isset($_GET['id'])) {
-    $stmt = $db->prepare("SELECT id, name, visible FROM category WHERE id=".$_GET['id']);
+    $stmt = $db->prepare("SELECT id, name, name_arm, visible FROM category WHERE id=".$_GET['id']);
     $stmt->execute();
 
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -11,7 +11,7 @@ if(isset($_GET['id'])) {
     //var_dump($result);
 }
 else {
-    $result = ['id'=>'', 'name' => '', 'visible'=>'0'];
+    $result = ['id'=>'', 'name' => '', 'visible'=>'0', 'name_arm' => ''];
 }
 $smarty->assign("cat_info", $result);
 $smarty->assign("menu_item", "category");
