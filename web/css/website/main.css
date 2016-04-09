@@ -351,17 +351,33 @@ div.languages a:active{
     text-align:right;
 }
 .last_shop_menu_item a:hover{
+    font-size: 18px;
     text-decoration: underline !important;
     background-color: #222e44 !important;
     color: white !important;
+    text-transform: capitalize;
+    font-family: ArianAMU;
+    text-align:right;
 }
 
 .shop_menu_item a:hover{
+    font-size: 18px;
     text-decoration: underline !important;
     background-color: #222e44 !important;
     color: white !important;
+    text-transform: capitalize;
+    font-family: ArianAMU;
+    text-align:right;
 }
 .item_active{
+    font-size: 18px;
     background-color: white;
-    color: #222e44;
+    color: #222e44 !important;
+    text-transform: capitalize;
+    font-family: ArianAMU;
+    text-align:right;
+}
+
+.souvenirs{
+    
 }

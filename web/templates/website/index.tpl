@@ -6,6 +6,7 @@
     <!-- jQuery library (served from Google) -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- bxSlider Javascript file -->
+
     
     <link rel="stylesheet" type="text/css" href="/css/website/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>

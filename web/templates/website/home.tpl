@@ -2,9 +2,11 @@
 {block name="main_content"}
    <!-- <p>We are in Home page</p> -->
 
-<script src="../../js/slider/jquery.bxslider.min.js"></script>
+
+<script src="../js/slider/jquery.bxslider.min.js"></script>
     <!-- bxSlider CSS file -->
-<link href="../../js/slider/jquery.bxslider.css" rel="stylesheet" />
+<link href="../js/slider/jquery.bxslider.css" rel="stylesheet" />
+
 
 <link rel="stylesheet" type="text/css" href="/js/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="/js/slick/slick-theme.css"/>
@@ -16,13 +18,13 @@
     <div class="opacity-block"></div> -->
     <div class="slider">
         <ul class="bxslider">
-            <li><img src="../../images/slide.jpg" /></li>
-            <li><img src="../../images/slide1.jpg" /></li>
-            <li><img src="../../images/slide2.jpg" /></li>
-            <li><img src="../../images/slide3.jpg" /></li>
-            <li><img src="../../images/slide4.jpg" /></li>
-            <li><img src="../../images/slide5.jpg" /></li>
-            <li><img src="../../images/slide6.jpg" /></li>
+            <li class="bxslider_image"><img src="../../images/slide.jpg" /></li>
+            <li class="bxslider_image"><img src="../../images/slide1.jpg" /></li>
+            <li class="bxslider_image"><img src="../../images/slide2.jpg" /></li>
+            <li class="bxslider_image"><img src="../../images/slide3.jpg" /></li>
+            <li class="bxslider_image"><img src="../../images/slide4.jpg" /></li>
+            <li class="bxslider_image"><img src="../../images/slide5.jpg" /></li>
+            <li class="bxslider_image"><img src="../../images/slide6.jpg" /></li>
         </ul>
         <div class="slider-info">
             <div class="title">
@@ -38,12 +40,12 @@
     </div>
 </div>
 
-<div class="latest-prodacts-container">
-    <div class="latest-prodacts">
+<div class="latest-products-container">
+    <div class="latest-products">
         <p>Latest products</p>
     </div>
      
-    <div class="latest-prodacts-list" data-slick='{ldelim}"slidesToShow": 4, "slidesToScroll": 4 {rdelim}'>
+    <div class="latest-products-list" data-slick='{ldelim}"slidesToShow": 4, "slidesToScroll": 4 {rdelim}'>
         {foreach from=$latest key=id item=souvenir name=foo}
         <div class="product">
             <div class="product-image">
@@ -63,8 +65,8 @@
 </div>
 
 
-<div class="featured-prodacts-container">
-    <div class="latest-prodacts">
+<div class="featured-products-container">
+    <div class="latest-products">
         <p>Featured products</p>
     </div>
 
@@ -87,30 +89,36 @@
     </div>
 </div>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/js/slick/slick.min.js"></script>
 
+
+
 <script type="text/javascript">
     $(document).ready(function(){
-      $('.latest-prodacts-list').slick({
+
+      $('.bxslider').bxSlider({
+        auto: true,
+        controls: false
+    });
+
+      $('.latest-products-list').slick({
         autoPlay: true,
         slidesToShow:4,
         slidesToScroll: 1,
         arrows: true
       });
-    });
-  </script>
+    
 
-<script type="text/javascript">
-    $(document).ready(function(){
       $('.featured-products-list').slick({
         autoPlay: true,
         slidesToShow:4,
         slidesToScroll: 1,
         arrows: true
       });
+
     });
   </script>
+
 
 {/block}
