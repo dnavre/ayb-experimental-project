@@ -188,3 +188,14 @@ div.product-name a{
 .text-price{
     margin-top: 15px;
 }
+
+.thumbnail {
+    border-radius:0px !important;
+    border:0px !important;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: 50% 50%;
+    width:220px;
+    height:250px;
+    margin-top:20px;
+}

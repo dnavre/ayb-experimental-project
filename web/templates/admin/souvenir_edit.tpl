@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label for="souvenir_name" class="col-sm-2 control-label">Name in Armenian</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="souvenir_name_arm" value="{$souvenir_info['name_arm']}" id="souvenir_name" required/>
+                    <input type="text" class="form-control" name="souvenir_name_arm" value="{$souvenir_info['name_arm']}" id="souvenir_name" />
                 </div>
             </div>
             <div class="form-group">
@@ -39,7 +39,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Visible</label>
                 <div class="col-sm-10">
-                    <input style="margin-top: 11px;" type="checkbox" name="souvenir_visible" {if $souvenir_info['visible'] eq '1'}checked{/if} >
+                    <input style="margin-top: 11px;" type="checkbox" name="souvenir_visible" {if not isset($souvenir_info['main_photo_id'])}disabled {/if} {if $souvenir_info['visible'] eq '1'}checked{/if} >
                 </div>
             </div>
             <div class="form-group">

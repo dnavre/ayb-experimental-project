@@ -17,12 +17,12 @@
                             <img src="/images/admin/up-icon.png">Make Main Image
                         </a>
                     </li>
-                    {/if}
                     <li>
                         <a class="delete_image" href="souvenir_delete_image?id={$image['id']}&souvenir_id={$souvenir_info['id']}">
                             <img src="/images/admin/delete-icon.png">Delete Image
                         </a>
                     </li>
+                    {/if}
                 </ul>
         </div>
     {/foreach}

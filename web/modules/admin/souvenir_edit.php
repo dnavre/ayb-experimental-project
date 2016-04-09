@@ -12,7 +12,7 @@ $result = $stmt->fetchAll();
 
 if(isset($_GET['id'])) {
 
-    $query = $db->prepare("SELECT s.id, s.name, s.name_arm, s.visible, s.description, s.description_arm, s.category_id, s.price, s.featured
+    $query = $db->prepare("SELECT s.id, s.name, s.name_arm, s.visible, s.description, s.description_arm, s.main_photo_id,  s.category_id, s.price, s.featured
           FROM souvenir s WHERE s.id=".$_GET['id']);
     $query->execute();
     $query->setFetchMode(PDO::FETCH_ASSOC);

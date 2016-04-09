@@ -49,7 +49,11 @@
         {foreach from=$latest key=id item=souvenir name=foo}
         <div class="product">
             <div class="product-image">
-                <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}"><img src="{$souvenir.src}"></a>
+                <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}">
+                    <div class="product-image">
+                        <div id="{$souvenir.id}" style="display:flex; background-image:url({$souvenir.src})" class="thumbnail"></div>
+                    </div>
+                </a>
             </div>
             <div class="text-price">
                 <div class="product-name">
@@ -73,9 +77,11 @@
     <div class="featured-products-list" data-slick='{ldelim}"slidesToShow": 4, "slidesToScroll": 4 {rdelim}'>
     {foreach from=$featured key=id item=souvenir name=foo}
         <div class="product" >
+            <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}">
             <div class="product-image">
-                <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}"><img src="{$souvenir.src}"></a>
+                <div id="{$souvenir.id}" style="display:flex; background-image:url({$souvenir.src})" class="thumbnail"></div>
             </div>
+            </a>
             <div class="text-price">
                 <div class="product-name">
                     <a href="/souvenir/{$souvenir.s_name}/{$souvenir.id}">{$souvenir.s_name}</a>

@@ -16,6 +16,8 @@ body {
 
 
 .thumbnail {
+    border-radius:0px !important;
+    border:0px !important;
     background-size:cover;
     background-repeat:no-repeat;
     background-position: 50% 50%;

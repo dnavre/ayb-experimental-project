@@ -7,7 +7,6 @@ include_once (ROOT . "/includes/imageResizeClass.php");
 $irConfig = new ImageResizeConfig();
 
 $id = $_POST['souvenir_id'];
-echo $id;
 $statement = $db->prepare("SELECT id FROM photo WHERE souvenir_id = :id");
 $statement->bindParam(':id', $id);
 $statement->execute();
