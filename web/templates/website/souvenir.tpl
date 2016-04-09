@@ -20,7 +20,7 @@
                 <div id="{$pics['id']}" style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 thumbnail"></div>
             {/foreach}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 souvenir_info">
             <h2>{$souvenir[0]['s_name']}</h2>
             <h4>{$souvenir[0]['c_name']}</h4>
             <h1>{$souvenir[0]['price']} AMD</h1>
