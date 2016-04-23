@@ -31,11 +31,6 @@
                             <li {if $menu_item eq 'category'}class = "active"{/if}><a href="/admin/category">Categories</a></li>
                             <li {if $menu_item eq 'page'}class = "active"{/if}><a href="/admin/page">Pages</a></li>
                         </ul>
-                        <form class="navbar-form  navbar-right" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                        </form>
                     </div>
                 </div>
             </nav>

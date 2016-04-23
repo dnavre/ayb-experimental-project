@@ -1,12 +1,17 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <script src="/js/bootstrap.js"></script>
+</head>
 {extends file="admin/index.tpl"}
 {block name=content}
+    {include file='admin/error.tpl'}
     {block name=error}{/block}
     {if $souvenir_info['id'] eq ''}
         <h3>New Souvenir</h3>
     {else}
         <h3>Edit Souvenir</h3>
     {/if}
-    <div id="souvenir_edit_left" class="col-md-6">
+    <div id="souvenir_edit_left" class="col-md-6 form_item">
         <form class="form-horizontal" method="post" action="?module=admin&action=souvenir_save" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="souvenir_name" class="col-sm-2 control-label">Name</label>
@@ -39,7 +44,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Visible</label>
                 <div class="col-sm-10">
-                    <input style="margin-top: 11px;" type="checkbox" name="souvenir_visible" {if not isset($souvenir_info['main_photo_id'])}disabled {/if} {if $souvenir_info['visible'] eq '1'}checked{/if} >
+                    <input id='visibility' style="margin-top: 11px;" type="checkbox" name="souvenir_visible" {if $souvenir_info['visible'] eq '1'}checked{/if} disabled />
                 </div>
             </div>
             <div class="form-group">
@@ -70,10 +75,60 @@
 
         </form>
     </div>
+    <div class="col-md-6 form_item">
+    <form class="form-horizontal" id="souvenir_images" method="post" action="souvenir_save_images" enctype="multipart/form-data">
+        <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
+        {foreach $souvenir_images as $image }
+            <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image"{/if}>
+                <img id = "{$image['id']}" src="{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image pics" {else} class="main_image" {/if}/>
+                <ul class="photo_actions">
+                    {if $souvenir_info['main_photo_id'] neq $image['id'] }
+                        <li>
+                            <a href="souvenir_make_main_image?id={$image['id']}&souvenir_id={$souvenir_info['id']}">
+                                <img src="/images/admin/up-icon.png">Make Main Image
+                            </a>
+                        </li>
+                        <li>
+                            <a class="delete_image" href="souvenir_delete_image?id={$image['id']}&souvenir_id={$souvenir_info['id']}">
+                                <img src="/images/admin/delete-icon.png">Delete Image
+                            </a>
+                        </li>
+                    {/if}
+                </ul>
+            </div>
+        {/foreach}
+        <div style="clear: both; margin-top: 100px;"></div>
+        <div class="form-group">
+            <div id="filediv"><input class="file" name="file" type="file" id="file"/></div>
+        </div>
+        <div class="form-group" id="submit_image">
+            <div class="col-sm-10">
+                <button type="file" class="btn btn-success" name="submit_image">Save Image</button>
+            </div>
+        </div>
+    </form>
+     </div>
+    <script>
+        $("form#souvenir_images").submit(function(event){
+            event.preventDefault();
+            var formData = new FormData($(this)[0]);
+            $.ajax({
+                url: 'souvenir_save_images.php',
+                type: 'POST',
+                data: formData,
+                async: true,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (returndata) {
+                    alert(returndata);
+                }
+            });
+            return false;
+        });
 
-    <div id="souvenir_edit_images" class="col-md-6">
-        <iframe style="width: 100%; height: auto; border: 0px;" src="souvenir_view_images{if $souvenir_info.id neq 0}?id={$souvenir_info['id']}{/if}" frameborder="0" scrolling="no" id="iframe" onload='javascript:resizeIframe(this);' />
-    </div>
-
-
+        function myFunction() {
+            document.getElementById("visibility").disabled = false;
+        };
+    </script>
 {/block}

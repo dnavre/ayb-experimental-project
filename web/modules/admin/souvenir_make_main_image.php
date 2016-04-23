@@ -10,4 +10,4 @@ $stmt->bindParam(':photo_id', $_GET['id']);
 $stmt->bindParam(':id', $_GET['souvenir_id']);
 $stmt->execute();
 
-header("Location: souvenir_view_images?id=".$_GET['souvenir_id']);
+header("Location: souvenir_edit?id=".$_GET['souvenir_id']);

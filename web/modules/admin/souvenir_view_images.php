@@ -34,5 +34,5 @@ else {
 $smarty->assign("souvenir_info", $souvenir_info);
 $smarty->assign("souvenir_images", $souvenir_images);
 $smarty->assign("id", $id);
-$smarty->display("admin/souvenir_view_images.tpl");
+$smarty->display("admin/souvenir_edit.tpl");
 
