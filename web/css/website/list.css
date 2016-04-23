@@ -1,9 +1,10 @@
 #categories{
-    height: 500px;
+    
     margin-right: 60px;
 }
 #souvenirs{
-    height: 535px;
+  
+    margin-top: 20px;
 }
 #souvenirs ul{
     list-style: none;
@@ -110,19 +111,34 @@ ul.souvenir_sm_list li.souvenir_sm:hover span.name_sm, ul.souvenir_sm_list li.so
 }#featured_souvenirs{
     float: left;
     padding: 20px 15px;
-    border: solid 1px #c8c8c8;
-    border-radius: 5px;
-    width: 482px;
+
  }
  #new_souvenirs{
      float: right;
      padding: 20px 15px;
-     border: solid 1px #c8c8c8;
-     border-radius: 5px;
-     width: 482px;
+     
  }
+
+.section-header{
+    color: white;
+    background-color: #303a4f;
+    font-family: ArianAMU;
+    font-size: 20px;
+ }
+ .section-header{
+    width: 450px;
+    height: 40px;
+    color: white;
+    background-color: #303a4f;
+    font-family: ArianAMU;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 1px;
+
+ }
+ 
+
  #more_souvenirs{
-     margin-top: 50px;
  }
  #more_souvenirs h4{
      margin-bottom: -10px;
