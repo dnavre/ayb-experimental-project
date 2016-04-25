@@ -53,20 +53,19 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
         $stmt3->bindParam(':src', $img_final_path);
         $r = $stmt3->execute();
     } else {
-        header("Location:". $redirect. "&error_id=" . SS_ERROR_IMAGE_SIZE);
+        header("Location:". $redirect. "?error_id=" . SS_ERROR_IMAGE_SIZE);
         die();
 
     }
     if (in_array(end($img_name), $image_extension) && $_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/jpg' || $_FILES['file']['type'] == 'image/png') {
     } else {
-        header("Location:". $redirect. "&error_id=" . SS_ERROR_IMAGE_EXTENSION);
+        header("Location:". $redirect. "?error_id=" . SS_ERROR_IMAGE_EXTENSION);
         die();
     }
 } else {
-    header("Location:". $redirect. "&error_id=" . SS_ERROR_IMAGE_EXTENSION);
+    header("Location:". $redirect. "?error_id=" . SS_ERROR_IMAGE_EXTENSION);
     die();
 }
-$json = "{'img_name':'".$photo_name."','img_src':'".$img_final_path."'}";
-
+$json = '{"img_name":"'.$photo_name.'","img_src":"'.$img_final_path.'"}';
 header("Content-type:application/json");
 echo $json;

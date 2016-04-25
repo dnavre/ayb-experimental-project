@@ -76,7 +76,7 @@
         </form>
     </div>
     <div class="col-md-6 form_item">
-    <form class="form-horizontal" id="souvenir_images" method="post" action="souvenir_save_images" enctype="multipart/form-data">
+    <form class="form-horizontal" id="souvenir_images" method="post">
         <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
         {foreach $souvenir_images as $image }
             <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image"{/if}>
@@ -103,32 +103,38 @@
         </div>
         <div class="form-group" id="submit_image">
             <div class="col-sm-10">
-                <button type="file" class="btn btn-success" name="submit_image">Save Image</button>
+                <input type="submit" class="btn btn-success" name="submit_image" value="Save Image" />
             </div>
         </div>
     </form>
      </div>
     <script>
-        $("form#souvenir_images").submit(function(event){
+        $("form#souvenir_images").submit(function(event) {
             event.preventDefault();
             var formData = new FormData($(this)[0]);
-            $.ajax({
-                url: 'souvenir_save_images.php',
-                type: 'POST',
-                data: formData,
-                async: true,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (returndata) {
-                    alert(returndata);
-                }
-            });
-            return false;
+            var pic_list = {};
+            function keepJson(formD, variable){
+                $.ajax({
+                    url: 'souvenir_save_images.php',
+                    type: 'POST',
+                    data: formD,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    dataType: "json",
+                    success: function (returndata) {
+                        variable =  returndata;
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
+                });
+            };
+            keepJson(formData, pic_list);
         });
-
-        function myFunction() {
-            document.getElementById("visibility").disabled = false;
-        };
+        function myFunction(){
+           document.getElementById("visibility").disabled = false;
+       };
     </script>
 {/block}
