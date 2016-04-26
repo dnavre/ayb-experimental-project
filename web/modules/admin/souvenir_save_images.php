@@ -66,6 +66,6 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
     header("Location:". $redirect. "?error_id=" . SS_ERROR_IMAGE_EXTENSION);
     die();
 }
-$json = '{"img_name":"'.$photo_name.'","img_src":"'.$img_final_path.'"}';
+$json = "{ \"img_name\": \"$photo_name\", \"img_src\":\"$img_final_path\"}";
 header("Content-type:application/json");
 echo $json;

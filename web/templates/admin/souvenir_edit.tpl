@@ -75,6 +75,9 @@
 
         </form>
     </div>
+    <div class="col-md-6 current_pic" id="temporary">
+
+    </div>
     <div class="col-md-6 form_item">
     <form class="form-horizontal" id="souvenir_images" method="post">
         <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
@@ -112,28 +115,27 @@
         $("form#souvenir_images").submit(function(event) {
             event.preventDefault();
             var formData = new FormData($(this)[0]);
-            var pic_list = {};
-            function keepJson(formD, variable){
-                $.ajax({
+            $.ajax({
                     url: 'souvenir_save_images.php',
                     type: 'POST',
-                    data: formD,
-                    async: false,
+                    data: formData,
                     cache: false,
                     contentType: false,
                     processData: false,
                     dataType: "json",
                     success: function (returndata) {
-                        variable =  returndata;
+                        var elem = document.createElement("img");
+                        elem.src=returndata["img_src"];
+                        document.getElementById("temporary").appendChild(elem);
+                        changeVis();
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         alert(errorThrown);
                     }
                 });
-            };
-            keepJson(formData, pic_list);
-        });
-        function myFunction(){
+                return false;
+            });
+        function changeVis(){
            document.getElementById("visibility").disabled = false;
        };
     </script>
