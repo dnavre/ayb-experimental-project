@@ -20,12 +20,12 @@ if(!empty($_POST['souvenir_id'])) {
     $name = $souv_info['name'];
     $photo_name = end($result)['id'] + 1;
     $slashed_id= $id.'/';
-    $redirect = 'souvenir_edit?id=' . $id;
+    $redirect = 'souvenir_view_images?id=' . $id. "&";
     }
 else{
     $photo_name = date('g-i-s').'_'.rand(100, 999);
     $slashed_id= '';
-    $redirect = 'souvenir_edit';
+    $redirect = 'souvenir_edit?';
 }
 
 if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
@@ -48,24 +48,30 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
             $stmt3->bindParam(':title', $name);
         }
         else {
-            $stmt3 =  $db->prepare("INSERT INTO photo(src) VALUES (:src)");
+            $stmt3 =  $db->prepare("INSERT INTO photo(title, src) VALUES (:photo_name, :src)");
+            $stmt3-> bindParam(':photo_name', $photo_name);
         }
         $stmt3->bindParam(':src', $img_final_path);
         $r = $stmt3->execute();
     } else {
-        header("Location:". $redirect. "?error_id=" . SS_ERROR_IMAGE_SIZE);
+        header("Location:". $redirect. "error_id=" . SS_ERROR_IMAGE_SIZE);
         die();
 
     }
     if (in_array(end($img_name), $image_extension) && $_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/jpg' || $_FILES['file']['type'] == 'image/png') {
     } else {
-        header("Location:". $redirect. "?error_id=" . SS_ERROR_IMAGE_EXTENSION);
+        header("Location:". $redirect. "error_id=" . SS_ERROR_IMAGE_EXTENSION);
         die();
     }
 } else {
-    header("Location:". $redirect. "?error_id=" . SS_ERROR_IMAGE_EXTENSION);
+    header("Location:". $redirect. "error_id=" . SS_ERROR_NO_IMAGE);
     die();
 }
-$json = "{ \"img_name\": \"$photo_name\", \"img_src\":\"$img_final_path\"}";
-header("Content-type:application/json");
-echo $json;
+if(!empty($_POST['souvenir_id'])) {
+    header("Location:".$redirect);
+}
+else {
+    $json = "{ \"img_name\": \"$photo_name\", \"img_src\":\"$img_final_path\"}";
+    header("Content-type:application/json");
+    echo $json;
+}

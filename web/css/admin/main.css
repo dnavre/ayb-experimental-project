@@ -34,7 +34,6 @@
 #content ul li{
     float: left;
     margin: 0 50px;
-    border: 1px solid #000;
 }
 .num{
     margin: 0 25px !important;
@@ -71,7 +70,8 @@
     margin-left:-20px;
     margin-bottom:91px
 }
-.main_image{
+.main_image,
+.temp_image{
     width: 400px;
     clear: both;
     border: solid 1px #898989;

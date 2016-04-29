@@ -1,10 +1,11 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/admin/main.css"/>
     <script src="/js/bootstrap.js"></script>
 </head>
+{include file='admin/error.tpl'}
 {extends file="admin/index.tpl"}
 {block name=content}
-    {include file='admin/error.tpl'}
     {block name=error}{/block}
     {if $souvenir_info['id'] eq ''}
         <h3>New Souvenir</h3>
@@ -44,7 +45,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Visible</label>
                 <div class="col-sm-10">
-                    <input id='visibility' style="margin-top: 11px;" type="checkbox" name="souvenir_visible" {if $souvenir_info['visible'] eq '1'}checked{/if} disabled />
+                    <input id='visibility' style="margin-top: 11px;" type="checkbox" name="souvenir_visible" {if $souvenir_info['visible'] eq '1'}checked{/if} {if $souvenir_info['id'] eq ''}disabled {/if}/>
                 </div>
             </div>
             <div class="form-group">
@@ -65,7 +66,8 @@
                     <textarea rows="10" name="souvenir_description_arm" >{$souvenir_info['description_arm']}</textarea>
                 </div>
             </div>
-            <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
+            <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}" />
+            <input type="hidden" id= "main_pic"  name="souvenir_pic"/>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label"></label>
                 <div class="col-sm-10">
@@ -79,7 +81,8 @@
 
     </div>
     <div class="col-md-6 form_item">
-    <form class="form-horizontal" id="souvenir_images" method="post">
+    <form class="form-horizontal" id="souvenir_images" {if $souvenir_info['id'] neq ''}
+        enctype = "multipart/form-data" action="souvenir_save_images" {/if} method="post">
         <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
         {foreach $souvenir_images as $image }
             <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image"{/if}>
@@ -100,7 +103,6 @@
                 </ul>
             </div>
         {/foreach}
-        <div style="clear: both; margin-top: 100px;"></div>
         <div class="form-group">
             <div id="filediv"><input class="file" name="file" type="file" id="file"/></div>
         </div>
@@ -111,8 +113,9 @@
         </div>
     </form>
      </div>
+    {if $souvenir_info['id'] eq ''}
     <script>
-        $("form#souvenir_images").submit(function(event) {
+        $("form#souvenir_images").submit(function (event) {
             event.preventDefault();
             var formData = new FormData($(this)[0]);
             $.ajax({
@@ -127,7 +130,10 @@
                         var elem = document.createElement("img");
                         elem.src=returndata["img_src"];
                         document.getElementById("temporary").appendChild(elem);
+                        $("div#temporary").children("img").addClass('temp_image');
                         changeVis();
+                        document.getElementById('main_pic').value = returndata["img_name"];
+
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         alert(errorThrown);
@@ -137,6 +143,6 @@
             });
         function changeVis(){
            document.getElementById("visibility").disabled = false;
-       };
-    </script>
+       }
+    </script> {/if}
 {/block}
