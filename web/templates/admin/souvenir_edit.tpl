@@ -104,7 +104,7 @@
             </div>
         {/foreach}
         <div class="form-group">
-            <div id="filediv"><input class="file" name="file" type="file" id="file"/></div>
+            <div id="filediv"><input class="file" name="file" type="file" id="file" multiple/></div>
         </div>
         <div class="form-group" id="submit_image">
             <div class="col-sm-10">

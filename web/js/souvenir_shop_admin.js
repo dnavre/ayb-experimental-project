@@ -13,14 +13,14 @@ $(document).ready(function() {
             $(this).hide();
             $("#abcd" + abc).append($("<img/>", {
                 id: 'img',
-                src: 'images/x.png',
+                src: '/images/x.png',
                 alt: 'delete'
             }).click(function() {
                 $(this).parent().parent().remove();
             }));
         }
     });
-    // To Preview Image
+   // To Preview Image
     function imageIsLoaded(e) {
         $('#previewimg' + abc).attr('src', e.target.result);
     };
@@ -32,9 +32,3 @@ $(document).ready(function() {
         }
     });
 });
-
-
-
-function resizeIframe(obj) {
-    obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
-}
