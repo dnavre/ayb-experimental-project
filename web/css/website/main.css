@@ -378,10 +378,17 @@ div.languages a:active{
     text-align:right;
 }
 
-#shop_menu{
-    
+#featured_souvenirs{
+    width: 100%;
 }
 
-.fn_souvenirs{
-  
+#new_souvenirs{
+    width: 100%;
 }
+.souvenir_sm_list{
+    margin-top: 0px !important;
+    width: 100%;
+    margin-bottom: 0px !important;
+}
+
+

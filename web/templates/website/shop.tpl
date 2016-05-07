@@ -1,5 +1,10 @@
 {extends file="website/index.tpl"}
 {block name=main_content}
+
+<link rel="stylesheet" type="text/css" href="/js/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/js/slick/slick-theme.css"/>
+
+
     <div id="shop_main_block" class="row">
         <div id="shop_menu" class="col-md-3">
             <ul class="nav nav-pills nav-stacked shop_menu_style" id="categories">
@@ -55,34 +60,29 @@
         <div  class="col-md-6">
             <div id="featured_souvenirs">
             <div class="section-header"> <h4>Featured Souvenirs</h4> </div>
-                <ul class="souvenir_sm_list">
-                    {foreach from=$feat_souvenirs key=id item=souvenir name=foo}
-                    {if $smarty.foreach.foo.index == 3}
-                        {break}
-                    {/if}
-                            <li class="souvenir_sm">
-                                <a href="/souvenir?id={$souvenir.id}">
-                                    <div class="souvenir_pic_sm" style="background-image:url({$souvenir.photo_src})">
-                                <div class="souvenir_info">
-                                    <span class="name_sm">{$souvenir.name}</span>
-                                    <span class="price_sm">{$souvenir.price}AMD</span>
-                                </div>
-                                    </div>
-                                </a>
-                            </li>
-
-                    {/foreach}
-                </ul>
+                
+                    <ul  class="souvenir_sm_list featured-products-karusel" data-slick='{ldelim}"slidesToShow": 3, "slidesToScroll": 3 {rdelim}'>
+                        {foreach from=$feat_souvenirs key=id item=souvenir name=foo}
+                                <li class="souvenir_sm">
+                                    <a href="/souvenir?id={$souvenir.id}">
+                                        <div class="souvenir_pic_sm" style="background-image:url({$souvenir.photo_src})">
+                                            <div class="souvenir_info">
+                                                <span class="name_sm">{$souvenir.name}</span>
+                                                <span class="price_sm">{$souvenir.price}AMD</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                        {/foreach}
+                    </ul>
+                
             </div>
         </div>
         <div  class="col-md-6">
             <div id="new_souvenirs">
                 <div class="section-header"> <h4>New Souvenirs</h4> </div>
-                <ul class="souvenir_sm_list">
+                <ul class="souvenir_sm_list new-products-karusel" data-slick='{ldelim}"slidesToShow": 3, "slidesToScroll": 3 {rdelim}'>
                     {foreach from=$new_souvenirs key=id item=souvenir name=foo}
-                        {if $smarty.foreach.foo.index == 3}
-                            {break}
-                        {/if}
                         <li class="souvenir_sm">
                             <a href="/souvenir?id={$souvenir.id}">
                                 <div class="souvenir_pic_sm" style="background-image:url({$souvenir.photo_src})">
@@ -98,4 +98,34 @@
             </div>
         </div>
     </div>
+
+
+<script type="text/javascript" src="/js/slick/slick.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+    $('.new-products-karusel').slick({
+        autoPlay: true,
+        slidesToShow:3,
+        slidesToScroll: 1,
+        autoplaySpeed: 2000,
+    });
+
+    $('.featured-products-karusel').slick({
+        autoPlay: true,
+        slidesToShow:3,
+        slidesToScroll: 1,
+        autoplaySpeed: 2000,
+
+    }); 
+
+       
+    
+    });
+  </script>
+
 {/block}

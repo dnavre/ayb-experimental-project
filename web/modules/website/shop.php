@@ -34,7 +34,7 @@ $result = $stmt->fetchAll();
 
 $stmt1 = $db->prepare("SELECT s.id, s.name, s.price, s.featured, p.src photo_src
 FROM souvenir s left join photo p on s.main_photo_id = p.id WHERE s.visible=1
-ORDER BY s.create_date DESC LIMIT 3");
+ORDER BY s.create_date DESC LIMIT 6");
 $stmt1->execute();
 $stmt1->setFetchMode(PDO::FETCH_ASSOC);
 $new_result = $stmt1->fetchAll();

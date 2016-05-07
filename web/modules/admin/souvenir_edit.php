@@ -11,13 +11,12 @@ $result = $stmt->fetchAll();
 
 
 if(isset($_GET['id'])) {
-
     $query = $db->prepare("SELECT s.id, s.name, s.name_arm, s.visible, s.description, s.description_arm, s.main_photo_id,  s.category_id, s.price, s.featured
           FROM souvenir s WHERE s.id=".$_GET['id']);
     $query->execute();
     $query->setFetchMode(PDO::FETCH_ASSOC);
     $souvenir_info = $query->fetch();
-
+    
     $queryGetImages = $db->prepare("SELECT *
           FROM photo p WHERE p.souvenir_id=:souvenir_id");
     $queryGetImages->bindParam('souvenir_id', $_GET['id']);

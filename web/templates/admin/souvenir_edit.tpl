@@ -12,7 +12,8 @@
     {else}
         <h3>Edit Souvenir</h3>
     {/if}
-    <div id="souvenir_edit_left" class="col-md-6 form_item">
+
+    <div id="souvenir_edit_left" class="col-md-6">
         <form class="form-horizontal" method="post" action="?module=admin&action=souvenir_save" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="souvenir_name" class="col-sm-2 control-label">Name</label>
