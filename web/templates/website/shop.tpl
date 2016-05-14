@@ -6,15 +6,15 @@
 
 
     <div id="shop_main_block" class="row">
-        <div id="shop_menu" class="col-md-3">
+        <div id="shop_menu" class="col-md-2">
             <ul class="nav nav-pills nav-stacked shop_menu_style" id="categories">
                     <li {if $active_category eq 'all'}class="item_active" {else} class= "shop_menu_item" {/if}> <a class="shop_menu_item_style" href="/shop">All Souvenirs</a></li>
                 {foreach $categories as $category name=categoryForeach}
-                    <li  class="{if $smarty.foreach.categoryForeach.last} last_shop_menu_item {else}shop_menu_item{/if} {if $active_category eq $category.id}item_active {else} shop_menu_item {/if}"> <a class="shop_menu_item_style" href="/shop/{$category.name}/{$category.id}">{$category.name}</a></li>
+                    <li  class="{if $active_category eq $category.id}item_active {else} shop_menu_item {/if}"> <a class="shop_menu_item_style" href="/shop/{$category.name}/{$category.id}">{$category.name}</a></li>
                 {/foreach}
             </ul>
         </div>
-        <div id="souvenirs" class="col-md-9">
+        <div id="souvenirs" class="col-md-10">
             <ul>
                 {foreach from=$souvenirs key=id item=souvenir name=foo}
                     <li class="souvenir" >

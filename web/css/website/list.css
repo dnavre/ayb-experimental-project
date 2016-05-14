@@ -1,6 +1,5 @@
 #categories{
-    
-    margin-right: 60px;
+   
 }
 #souvenirs{
   
@@ -12,8 +11,8 @@
     
 }
 #souvenirs ul li.souvenir{
-    width: 180px;
-    height: 200px;
+    width: 200px;
+    height: 220px;
     position: relative;
     float: left;
     margin: 15px 15px;

@@ -178,7 +178,7 @@ ul.menu li {
 }
 
 ul.menu li a {
-    background-color: #19202d;
+ 
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -208,7 +208,7 @@ ul.menu li a:hover {
     width: 100%;
     font-size: 14px;
     height: 100%;
-    background-color: #222e44;
+    background-color: #303a4f;
     color: white;
     border: none;
     padding-right: 30px;
@@ -324,58 +324,46 @@ div.languages a:active{
 .shop_menu_style{
     margin-top: 30px; 
     margin-bottom: 20px;
-    border-right-style: solid;
-    border-color: white;
-    border-width: 2px;
     width: auto !important;
     padding-right: 0px !important;
     border-radius: 0px !important;
 }
 
 .shop_menu_item{
-    float: right;
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: white;
+    float: left;
     border-radius: 0px !important;
+ 
 
 }
-.last_shop_menu_item{
-    color: white;
-}
+
 .shop_menu_item_style{
     color: white;
     font-size: 18px;
     text-transform: capitalize;
     font-family: ArianAMU;
-    text-align:right;
-}
-.last_shop_menu_item a:hover{
-    font-size: 18px;
-    text-decoration: underline !important;
-    background-color: #222e44 !important;
-    color: white !important;
-    text-transform: capitalize;
-    font-family: ArianAMU;
-    text-align:right;
+    text-align:left;
+    border-radius: 0px !important;
+
 }
 
 .shop_menu_item a:hover{
+    color: #303a4f;
     font-size: 18px;
-    text-decoration: underline !important;
-    background-color: #222e44 !important;
-    color: white !important;
     text-transform: capitalize;
     font-family: ArianAMU;
-    text-align:right;
+    text-align:left;
+    border-radius: 0px !important;
+    
+    
 }
 .item_active{
     font-size: 18px;
-    background-color: white;
-    color: #222e44 !important;
+    color: #303a4f !important;
     text-transform: capitalize;
     font-family: ArianAMU;
-    text-align:right;
+    text-align:left;
+    text-decoration: underline;
+    border-radius: 0px !important;
 }
 
 #featured_souvenirs{
