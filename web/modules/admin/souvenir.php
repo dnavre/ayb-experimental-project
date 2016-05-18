@@ -1,7 +1,6 @@
 <?php
 
 global $db, $smarty;
-//var_dump($_GET);
 if(isset($_GET['category_id'])) {
 
         // Fetching souvenirs

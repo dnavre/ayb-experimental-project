@@ -1,4 +1,4 @@
-var abc = 0;
+/*var abc = 0;
 $(document).ready(function() {
     // Following function will executes on change event of file input to select different file.
     $('body').on('change', '#file', function() {
@@ -31,4 +31,4 @@ $(document).ready(function() {
             e.preventDefault();
         }
     });
-});
+});*/

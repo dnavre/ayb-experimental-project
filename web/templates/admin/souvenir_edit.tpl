@@ -13,7 +13,7 @@
         <h3>Edit Souvenir</h3>
     {/if}
 
-    <div id="souvenir_edit_left" class="col-md-6">
+<div id="souvenir_edit_left" class="col-md-6 form_item">
         <form class="form-horizontal" method="post" action="?module=admin&action=souvenir_save" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="souvenir_name" class="col-sm-2 control-label">Name</label>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}" />
-            <input type="hidden" id= "main_pic"  name="souvenir_pic"/>
+            <input type="text" id= "main_pic"  name="souvenir_pic"/>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label"></label>
                 <div class="col-sm-10">
@@ -78,9 +78,22 @@
 
         </form>
     </div>
-    <div class="col-md-6 current_pic" id="temporary">
 
+    <div style="display:none" class="col-md-6 current_pic" id="temporary">
+        <ul class="photo_actions">
+                <li>
+                    <a href="souvenir_make_main_image?id=">
+                        <img src="/images/admin/up-icon.png">Make Main Image
+                    </a>
+                </li>
+                <li>
+                    <a class="delete_image" href="souvenir_delete_image?id=">
+                        <img src="/images/admin/delete-icon.png">Delete Image
+                    </a>
+                </li>
+        </ul>
     </div>
+
     <div class="col-md-6 form_item">
     <form class="form-horizontal" id="souvenir_images" {if $souvenir_info['id'] neq ''}
         enctype = "multipart/form-data" action="souvenir_save_images" {/if} method="post">
@@ -105,7 +118,7 @@
             </div>
         {/foreach}
         <div class="form-group">
-            <div id="filediv"><input class="file" name="file" type="file" id="file" multiple/></div>
+            <div id="filediv"><input class="file" name="file[]" type="file" id="file" multiple accept="image/*"/></div>
         </div>
         <div class="form-group" id="submit_image">
             <div class="col-sm-10">
@@ -128,12 +141,16 @@
                     processData: false,
                     dataType: "json",
                     success: function (returndata) {
-                        var elem = document.createElement("img");
-                        elem.src=returndata["img_src"];
-                        document.getElementById("temporary").appendChild(elem);
-                        $("div#temporary").children("img").addClass('temp_image');
+                        for(data of returndata) {
+                            var elem = document.createElement("img");
+                            elem.src = data["img_src"];
+                            document.getElementById("temporary").appendChild(elem);
+                            $("div#temporary").children("img").addClass('temp_image');
+                            document.getElementById('main_pic').value += data['img_name'] += ',' ;
+                        }
                         changeVis();
-                        document.getElementById('main_pic').value = returndata["img_name"];
+                        document.getElementById('temporary').removeAttribute('style');
+
 
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
@@ -145,5 +162,5 @@
         function changeVis(){
            document.getElementById("visibility").disabled = false;
        }
-    </script> {/if}
+    </script>{/if}
 {/block}

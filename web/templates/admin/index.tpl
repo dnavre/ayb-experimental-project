@@ -17,6 +17,7 @@
     </script>
 </head>
 <body>
+
     <div id="wrapper">
         <div id="header" class="clr">
             <h1>SS Admin Panel</h1>

@@ -58,6 +58,8 @@ if($_POST['souvenir_id'] == '') {
     $stmt->bindParam(':featured', $featured);
     $stmt->execute();
     $id = $db->lastInsertId();
+
+
     $stmt1 = $db -> prepare("UPDATE photo SET souvenir_id = :id, title=:name, src = :src WHERE title = :main_pic");
     $stmt1->bindParam(':id', $id);
     $stmt1->bindParam(':name', $name);
@@ -71,12 +73,14 @@ if($_POST['souvenir_id'] == '') {
     $pic->setFetchMode(PDO::FETCH_ASSOC);
     $pic_id = $pic->fetch();
     $pic_id=$pic_id['id'];
+    mkdir('././uploads/souvenirs/'.$id);
+    rename('././uploads/souvenirs/'.$main_pic.'.png', '././uploads/souvenirs/'.$id.'/'.$photo_name.'.png');
+
+
     $stmt2 = $db -> prepare("UPDATE souvenir SET main_photo_id = :pic_id WHERE id = :souv_id");
     $stmt2-> bindParam(':pic_id', $pic_id);
     $stmt2-> bindParam(':souv_id', $id);
     $stmt2->execute();
-    mkdir('././uploads/souvenirs/'.$id);
-    rename('././uploads/souvenirs/'.$main_pic.'.png', '././uploads/souvenirs/'.$id.'/'.$photo_name.'.png');
 }
 else {
     $statement2 = $db->prepare("SELECT publish_date FROM souvenir WHERE id = :id");
