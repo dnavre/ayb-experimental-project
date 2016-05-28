@@ -11,7 +11,10 @@ $statement->setFetchMode(PDO::FETCH_ASSOC);
 $result = $statement->fetchAll();
 $photo_name = end($result)['id'] + 1;
 $name = $_POST['souvenir_name'];
-$main_pic = $_POST['souvenir_pic'];
+$main_pic = $_POST['main_pic'];
+$pics = explode(',', $_POST['souvenir_pics']);
+array_pop($pics);
+$pic_id = 0;
 $name_arm = $_POST['souvenir_name_arm'];
 $price = $_POST['souvenir_price'];
 if(isset($_POST['souvenir_visible'])){
@@ -60,23 +63,26 @@ if($_POST['souvenir_id'] == '') {
     $id = $db->lastInsertId();
 
 
-    $stmt1 = $db -> prepare("UPDATE photo SET souvenir_id = :id, title=:name, src = :src WHERE title = :main_pic");
-    $stmt1->bindParam(':id', $id);
-    $stmt1->bindParam(':name', $name);
-    $stmt1->bindParam(':main_pic', $main_pic);
-    $src = '/uploads/souvenirs/'.$id.'/'.$photo_name.".png";
-    $stmt1->bindParam(':src', $src);
-    $stmt1->execute();
-    $pic = $db -> prepare("SELECT id FROM photo WHERE souvenir_id=:id");
-    $pic -> bindParam(':id',$id);
-    $pic -> execute();
-    $pic->setFetchMode(PDO::FETCH_ASSOC);
-    $pic_id = $pic->fetch();
-    $pic_id=$pic_id['id'];
-    mkdir('././uploads/souvenirs/'.$id);
-    rename('././uploads/souvenirs/'.$main_pic.'.png', '././uploads/souvenirs/'.$id.'/'.$photo_name.'.png');
+    foreach($pics as $picture) {
+       if($picture == $main_pic) {
+           $pic = $db -> prepare("SELECT id FROM photo WHERE title = :picture");
+           $pic -> bindParam(":picture", $picture);
+           $pic -> execute();
+           $pic->setFetchMode(PDO::FETCH_ASSOC);
+           $pic_id= $pic->fetch()['id'];
 
-
+        }
+        $stmt1 = $db->prepare("UPDATE photo SET souvenir_id = :id, title=:name, src = :src WHERE title = :picture");
+        $stmt1->bindParam(':id', $id);
+        $stmt1->bindParam(':name', $name);
+        $stmt1->bindParam(':picture', $picture);
+        $src = '/uploads/souvenirs/' . $id . '/' . $photo_name . ".png";
+        $stmt1->bindParam(':src', $src);
+        $stmt1->execute();
+        if(!file_exists('././uploads/souvenirs/' . $id)) mkdir('././uploads/souvenirs/' . $id);
+        rename('././uploads/souvenirs/' . $picture . '.png', '././uploads/souvenirs/' . $id . '/' . $photo_name . '.png');
+        $photo_name++;
+    }
     $stmt2 = $db -> prepare("UPDATE souvenir SET main_photo_id = :pic_id WHERE id = :souv_id");
     $stmt2-> bindParam(':pic_id', $pic_id);
     $stmt2-> bindParam(':souv_id', $id);

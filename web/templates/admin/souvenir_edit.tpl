@@ -68,7 +68,8 @@
                 </div>
             </div>
             <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}" />
-            <input type="text" id= "main_pic"  name="souvenir_pic"/>
+            <input type="hidden" id= "pics"  name="souvenir_pics"/>
+            <input type="hidden" id= "main_pic"  name="main_pic"/>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label"></label>
                 <div class="col-sm-10">
@@ -79,19 +80,7 @@
         </form>
     </div>
 
-    <div style="display:none" class="col-md-6 current_pic" id="temporary">
-        <ul class="photo_actions">
-                <li>
-                    <a href="souvenir_make_main_image?id=">
-                        <img src="/images/admin/up-icon.png">Make Main Image
-                    </a>
-                </li>
-                <li>
-                    <a class="delete_image" href="souvenir_delete_image?id=">
-                        <img src="/images/admin/delete-icon.png">Delete Image
-                    </a>
-                </li>
-        </ul>
+    <div class="col-md-6 current_pic" id="temporary">
     </div>
 
     <div class="col-md-6 form_item">
@@ -132,6 +121,7 @@
         $("form#souvenir_images").submit(function (event) {
             event.preventDefault();
             var formData = new FormData($(this)[0]);
+            var num = 1;
             $.ajax({
                     url: 'souvenir_save_images.php',
                     type: 'POST',
@@ -143,15 +133,29 @@
                     success: function (returndata) {
                         for(data of returndata) {
                             var elem = document.createElement("img");
+                            var menu_bar = "<ul class='photo_actions'>\
+                                    <li>\
+                                    <a class='menu_set' onclick='mainPic(\""+ data['img_name'] + "\")'>\
+                                    <img src='/images/admin/up-icon.png'>Make Main Image\
+                            </a>\
+                            </li>\
+                            <li>\
+                               <a class='menu_set' onclick = 'delPic(\""+ data['img_name'] + "\")'>\
+                               <img src='/images/admin/delete-icon.png'> Delete Image\
+                               </a>\
+                             </li>\
+                            </ul>";
                             elem.src = data["img_src"];
-                            document.getElementById("temporary").appendChild(elem);
-                            $("div#temporary").children("img").addClass('temp_image');
-                            document.getElementById('main_pic').value += data['img_name'] += ',' ;
+                            var new_div = document.createElement("div");
+                            document.getElementById("temporary").appendChild(new_div);
+                            $(new_div).attr('id',num);
+                            document.getElementById(num).appendChild(elem);
+                            $("div#"+num).children("img").addClass('temp_image');
+                            $("div#"+num).children("img").attr('id',data['img_name']);
+                            $("div#"+num).append(menu_bar);
+                            document.getElementById('pics').value += data['img_name'] += ',';
+                            num++;
                         }
-                        changeVis();
-                        document.getElementById('temporary').removeAttribute('style');
-
-
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         alert(errorThrown);
@@ -159,8 +163,27 @@
                 });
                 return false;
             });
-        function changeVis(){
-           document.getElementById("visibility").disabled = false;
+
+    function delPic(img_name) {
+        $.ajax({
+               url: 'souvenir_delete_image.php',
+               type: 'POST',
+               data: {
+                   img_src: img_name
+               },
+               dataType: 'text',
+               success:function(){
+                   $("img#"+img_name).parent().remove();
+                   document.getElementById('pics').value = document.getElementById('pics').value.replace(img_name + ',','');
+                   $('#file').val('');
+               }
+           });
        }
+    function mainPic(img_name){
+        $(".photo_actions").removeClass('main_pic_menu');
+        $("img#"+img_name).parent().children('.photo_actions').addClass('main_pic_menu');
+        document.getElementById('main_pic').value = img_name;
+        document.getElementById("visibility").disabled = false;
+    }
     </script>{/if}
 {/block}

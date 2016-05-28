@@ -117,3 +117,10 @@
 #submit_image{
     text-align: center;
 }
+.menu_set{
+    cursor:pointer;
+}
+.main_pic_menu{
+    display:none;
+
+}
