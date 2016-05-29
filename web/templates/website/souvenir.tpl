@@ -14,7 +14,7 @@
     <div class="row" style="width:100%">
         <div class="col-md-7">
             <div class = "main_pic">
-                <img id="main_image" width="100%" onload="this.width/=1.5;this.onload=null;" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
+                <img id="main_image" width="400px" src="{if (!empty($photo[0]))}{$photo[0]['src']}{/if}">
             </div>
             {foreach from=$photo item=pics}
                 <div id="{$pics['id']}" style="display:flex; background-image:url({if (!empty($pics))}{$pics['src']}{/if})" class="col-md-3 thumbnail"></div>

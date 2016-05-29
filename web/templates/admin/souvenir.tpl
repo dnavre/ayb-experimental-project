@@ -3,7 +3,7 @@
 
     <h1>Souvenirs</h1>
     <button onclick="window.location.href='souvenir_edit'" type="button" class="new btn btn-success">Add New Souvenir</button>
-    {if isset($catid)}Souvenirs from category <b>{$catid}</b>. <a href="/admin/souvenir">View all</a>{/if}
+    {if isset($catid)}Souvenirs from category <b>{$catid}</b>. <a href="/admin/souvenir">View all</a> | <a href="/admin/category">Categories</a>{/if}
     <table class="table table-hover">
         <thead>
             <th width="5%">#</th>

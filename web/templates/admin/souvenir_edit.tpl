@@ -181,7 +181,9 @@
        }
     function mainPic(img_name){
         $(".photo_actions").removeClass('main_pic_menu');
+        $(".temp_image").addClass('view_image');
         $("img#"+img_name).parent().children('.photo_actions').addClass('main_pic_menu');
+        $("img#"+img_name).removeClass('view_image');
         document.getElementById('main_pic').value = img_name;
         document.getElementById("visibility").disabled = false;
     }
