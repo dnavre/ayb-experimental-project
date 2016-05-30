@@ -1,6 +1,6 @@
 <?php
-
 require_once 'includes/globals.php';
+
 $defaultModule = 'website';
 
 $defaultId = '';
@@ -11,7 +11,10 @@ if(isset($_GET['module'])) {
 else $module = $defaultModule;
 
 if($module == 'website') $defaultAction = 'home';
-else $defaultAction = 'souvenir';
+else {
+    $defaultAction = 'souvenir';
+    require_once 'clean_up.php';
+}
 
 if(isset($_GET['action'])) {
     $url = explode("/", $_GET['action']);

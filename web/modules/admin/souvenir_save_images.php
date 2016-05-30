@@ -3,7 +3,6 @@
 
 
 global $db;
-
 include_once (ROOT . "/includes/imageResizeClass.php");
 $irConfig = new ImageResizeConfig();
 if(!empty($_POST['souvenir_id'])) {
@@ -24,6 +23,7 @@ if(!empty($_POST['souvenir_id'])) {
     $redirect = 'souvenir_view_images?id=' . $id. "&";
     }
 else{
+    $_SESSION['cleanup'] = 1;
     $photo_name_base = time().'_'.rand(100, 999);
     $slashed_id= '';
     $redirect = 'souvenir_edit?';
