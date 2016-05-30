@@ -70,24 +70,19 @@
     margin-left:-20px;
     margin-bottom:91px
 }
-.main_image,
-.temp_image{
+.main_image{
     width: 400px;
     clear: both;
     border: solid 1px #898989;
     border-radius: 5px;
 }
-.secondary_image{
-    margin: 20px 0;
-    clear: both;
-    height: 200px;
-}
+
 .view_image{
+    display: table-footer-group !important;
     clear: both;
-    display: block;
     border: solid 1px #898989;
     border-radius: 5px;
-    margin-right: 20px;
+    margin: 20px 0;
     height:100px;
     width:100px;
 }
@@ -122,5 +117,16 @@
 }
 .main_pic_menu{
     display:none;
+}
 
+#temporary{
+    display: table;
+}
+
+#images{
+    display: table;
+}
+
+.main_pic{
+    display: table-header-group;
 }

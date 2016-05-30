@@ -82,14 +82,14 @@
 
     <div class="col-md-6 current_pic" id="temporary">
     </div>
-
     <div class="col-md-6 form_item">
     <form class="form-horizontal" id="souvenir_images" {if $souvenir_info['id'] neq ''}
         enctype = "multipart/form-data" action="souvenir_save_images" {/if} method="post">
         <input type="hidden" name="souvenir_id" value="{$souvenir_info['id']}">
+        <div id="images">
         {foreach $souvenir_images as $image }
-            <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image"{/if}>
-                <img id = "{$image['id']}" src="{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image pics" {else} class="main_image" {/if}/>
+            <div{if $souvenir_info['main_photo_id'] neq $image['id']} class="secondary_image" {else} class="main_pic"{/if}>
+                <img id = "{$image['id']}" src="{$image['src']}" {if $souvenir_info['main_photo_id'] neq $image['id']} class="view_image" {else} class="main_image" {/if}/>
                 <ul class="photo_actions">
                     {if $souvenir_info['main_photo_id'] neq $image['id'] }
                         <li>
@@ -106,6 +106,7 @@
                 </ul>
             </div>
         {/foreach}
+        </div>
         <div class="form-group">
             <div id="filediv"><input class="file" name="file[]" type="file" id="file" multiple accept="image/*"/></div>
         </div>
@@ -150,7 +151,7 @@
                             document.getElementById("temporary").appendChild(new_div);
                             $(new_div).attr('id',num);
                             document.getElementById(num).appendChild(elem);
-                            $("div#"+num).children("img").addClass('temp_image');
+                            $("div#"+num).children("img").addClass('main_image');
                             $("div#"+num).children("img").attr('id',data['img_name']);
                             $("div#"+num).append(menu_bar);
                             document.getElementById('pics').value += data['img_name'] += ',';
@@ -181,7 +182,9 @@
        }
     function mainPic(img_name){
         $(".photo_actions").removeClass('main_pic_menu');
-        $(".temp_image").addClass('view_image');
+        $(".main_pic").removeClass('main_pic');
+        $(".main_image").addClass('view_image');
+        $("img#"+img_name).parent().addClass('main_pic');
         $("img#"+img_name).parent().children('.photo_actions').addClass('main_pic_menu');
         $("img#"+img_name).removeClass('view_image');
         document.getElementById('main_pic').value = img_name;
